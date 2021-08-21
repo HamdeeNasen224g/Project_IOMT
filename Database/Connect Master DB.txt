@@ -1,0 +1,4 @@
+DB instance : projectiot
+DB Master : dee
+pass : 62112073
+Host : projectiot.ck1dneket7id.ap-southeast-1.rds.amazonaws.com
