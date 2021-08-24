@@ -4,6 +4,7 @@
 <body>
 
 <?php include 'section.php'; ?>
+<?php include 'Table.php'; ?>
 <?php include 'footer.php'; ?>
 
 </body>
