@@ -225,8 +225,9 @@
   <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
-  <!--<script src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="640" height="480"></script>-->
+  <script >
   <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="640" height="480"></iframe>
+    </script>
   <!-- Chart JS -->
   <script src="../js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
