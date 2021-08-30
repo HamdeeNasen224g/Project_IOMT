@@ -225,7 +225,11 @@
   <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
+<<<<<<< HEAD
   <script src="https://thingspeak.com/channels/1458414/maps/channel_show"></script>
+=======
+  <script src="https://thingspeak.com/channels/1458409/maps/channel_show"></script>
+>>>>>>> 52c50be4dbdc8e99ac75442a9386d091a28ac00d
   <!-- Chart JS -->
   <script src="../js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
