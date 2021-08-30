@@ -178,7 +178,7 @@
                       </a>
                     </div>
                   </div>
-                  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="1200" height="550"></iframe>
+                  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="1200" height="540"></iframe>
                 </div>
               </div>
       <div class="content">
