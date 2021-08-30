@@ -164,7 +164,7 @@
                     <div class="col-md-5 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="123456789" placeholder="Hospital Number" >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="123456789" >
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
