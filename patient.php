@@ -161,22 +161,22 @@
               <div class="card-body">
                 <form>
                   <div class="row">
-                    <div class="col-md-5 pr-md-1">
+                    <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
                         <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="123456789" >
                       </div>
                     </div>
-                    <div class="col-md-3 px-md-1">
+                    <div class="col-md-4 px-md-1">
                       <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" value="Mantana">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="mike@email.com">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" value="Laaiadkan">
                       </div>
                     </div>
                   </div>
