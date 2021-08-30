@@ -224,9 +224,6 @@
                   </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Save</button>
-              </div>
             </div>
           </div>
           <div class="col-md-4">
