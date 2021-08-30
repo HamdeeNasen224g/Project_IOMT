@@ -183,8 +183,8 @@
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                        <label>Birthday Date</label>
+                        <input type="text" class="form-control" placeholder="Birthday Date" value="07-09-2000">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
