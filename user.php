@@ -52,32 +52,26 @@
         </div>
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="./index.php">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
   
           <li>
-            <a href="./map.html">
+            <a href="./map.php">
               <i class="tim-icons icon-pin"></i>
               <p>Maps</p>
             </a>
           </li>
          
           <li class="active ">
-            <a href="./user.html">
+            <a href="./user.php">
               <i class="tim-icons icon-single-02"></i>
               <p>Patient Profile</p>
             </a>
           </li>
          
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="tim-icons icon-spaceship"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
