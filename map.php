@@ -19,8 +19,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
     Dashboard Walailak University Hospital
   </title>
@@ -170,7 +170,7 @@
                         </a>
                         </span>
                       </label>
-                      <a href="user.php" class="btn btn-sm btn-primary btn-simple">
+                      <a href="user.html" class="btn btn-sm btn-primary btn-simple">
                         <input type="radio" class="d-none d-sm-none" name="options">
                         <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Mantana laaiadkan</span>
                         <span class="d-block d-sm-none"></span>
@@ -219,20 +219,20 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../js/core/jquery.min.js"></script>
-  <script src="../js/core/popper.min.js"></script>
-  <script src="../js/core/bootstrap.min.js"></script>
-  <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="640" height="480"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="../js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="../js/plugins/bootstrap-notify.js"></script>
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../demo/demo.js"></script>
+  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
