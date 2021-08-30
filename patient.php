@@ -71,7 +71,6 @@
               <p>Patient Profile</p>
             </a>
           </li>
-         
         </ul>
       </div>
     </div>
