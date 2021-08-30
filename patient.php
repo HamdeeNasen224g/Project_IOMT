@@ -163,8 +163,8 @@
                   <div class="row">
                     <div class="col-md-5 pr-md-1">
                       <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                        <label>Hospital Number</label>
+                        <input type="text" class="form-control" disabled="123456789" placeholder="Hospital Number" >
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
