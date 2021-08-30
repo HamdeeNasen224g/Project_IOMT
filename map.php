@@ -170,7 +170,7 @@
                         </a>
                         </span>
                       </label>
-                      <a href="user.html" class="btn btn-sm btn-primary btn-simple">
+                      <a href="user.php" class="btn btn-sm btn-primary btn-simple">
                         <input type="radio" class="d-none d-sm-none" name="options">
                         <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Mantana laaiadkan</span>
                         <span class="d-block d-sm-none"></span>
