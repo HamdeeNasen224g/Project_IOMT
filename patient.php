@@ -66,7 +66,7 @@
           </li>
          
           <li class="active ">
-            <a href="./user.php">
+            <a href="./patient.php">
               <i class="tim-icons icon-single-02"></i>
               <p>Patient Profile</p>
             </a>
