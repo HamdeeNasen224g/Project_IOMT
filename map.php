@@ -176,9 +176,10 @@
                         <span class="d-block d-sm-none"></span>
                         </span>
                       </a>
-                      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="640" height="480"></iframe>
+                      
                     </div>
                   </div>
+                  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17DIr5j_YeGDvR6g5OMiJXOHOIm57A0gS" width="640" height="480"></iframe>
                 </div>
               </div>
       <div class="content">
