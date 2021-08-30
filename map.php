@@ -225,7 +225,7 @@
   <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="https://www.google.co.th/maps/place/%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%93%E0%B8%B2%E0%B8%99%E0%B8%B4%E0%B9%80%E0%B8%A7%E0%B8%A8+18/@8.6452586,99.890699,17z/data=!4m9!1m2!2m1!1z4Lir4Lit4Lil4Lix4LiB4Lip4LiT4Liy4LiZ4Li04LmA4Lin4LipMTg!3m5!1s0x3053a1f5d67f448f:0xccf4067368698fb4!8m2!3d8.6480771!4d99.8892548!15sCinguKvguK3guKXguLHguIHguKnguJPguLLguJnguLTguYDguKfguKgxOFowIi7guKvguK0g4Lil4Lix4LiBIOC4qSDguJPguLIg4LiZ4Li04LmA4Lin4LioIDE4kgEWc3R1ZGVudF9ob3VzaW5nX2NlbnRlcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSVk9FeDFaRlZCRUFF"></script>
   <!-- Chart JS -->
   <script src="../js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
