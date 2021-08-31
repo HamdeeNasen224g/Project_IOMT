@@ -10,11 +10,12 @@
                 $hid = $row['hid'];
                 $p_Fname =  $row['p_Fname'];
                 $p_Lname = $row['p_Lname'];
-                $dob = $row['dob'];
-                $address = $row['address'];              
+                $dob = date('d/m/Y', $row['dob']);
+                $address = $row['address']; 
+                $zipcode = $row['postalcode'];             
                 $weight = $row['weight'];
                 $height = $row['height'];
-                $timestamp = $row['timestamp'];
+                $timestamp = date('d/m/Y H:i:s', $row['timestamp']);
            
                ?>
                     
