@@ -250,13 +250,15 @@
               </div>
               <div class="card-footer">
                 <div class="button-container">
-                  <button href="https://www.facebook.com/mtuntana" class="btn btn-icon btn-round btn-facebook">
+                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+                    <a href="https://www.facebook.com/mtuntana">
                     <i class="fab fa-facebook"></i>
+                    </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
                     <i class="fab fa-twitter"></i>
                   </button>
-                  <button href="https://myaccount.google.com/u/1/?utm_source=OGB&utm_medium=act" class="btn btn-icon btn-round btn-google">
+                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
                     <i class="fab fa-google-plus"></i>
                   </button>
                 </div>
