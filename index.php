@@ -158,6 +158,7 @@
                 <div class="row">
                   <div class="col-sm-6 text-left">
                     <h5 class="card-category">Total Shipments</h5>
+
                     <h2 class="card-title">Performance</h2>
                   </div>
                   <div class="col-sm-6 text-left">
@@ -198,6 +199,7 @@
               <div class="card-body">
                 <div class="chart-area">
                   <canvas id="chartLinePurple"></canvas>
+                  <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
                 </div>
               </div>
             </div>
