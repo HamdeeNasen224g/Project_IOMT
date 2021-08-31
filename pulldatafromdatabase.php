@@ -15,10 +15,7 @@
                 $weight = $row['weight'];
                 $height = $row['height'];
                 $timestamp = $row['timestamp'];
-
-
-
-               
+           
                ?>
                     
                 <?php
