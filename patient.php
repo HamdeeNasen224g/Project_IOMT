@@ -250,7 +250,7 @@
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
-                      <img class="avatar" src="../img/emilyz.jpg" alt="...">
+                      <img class="avatar" src="../img/tan.jpg" alt="...">
                       <h5 class="title">Mantana Laaiadkan</h5>
                     </a>
                     <p class="description">
@@ -270,12 +270,12 @@
                     </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
-                  <a href="https://www.facebook.com/mtuntana">
+                  <a href="https://twitter.com/_inspiredbyu_">
                     <i class="fab fa-twitter"></i>
                     </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-                  <a href="https://www.facebook.com/mtuntana">  
+                  <a href="https://www.instagram.com/mtantana_/">  
                   <i class="fab fa-instagram"></i>
                   </a>
                   </button>
