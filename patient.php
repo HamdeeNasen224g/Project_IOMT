@@ -153,7 +153,7 @@
       <!-- End Navbar -->
       <?php 
          $bloodList = array();
-         $sql = "SELECT * FROM blood";
+         $sql = "SELECT * FROM blood bl join patient";
          $resultM = $conn->query($sql);
          
          if ($resultM->num_rows > 0) {
