@@ -195,7 +195,7 @@
               <div class="card-header">
                 <!-- <h5 class="card-category"></h5>-->
                 <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
-                <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                <iframe width="260" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
               <div class="card-body">
                
