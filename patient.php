@@ -151,6 +151,27 @@
         </div>
       </div>
       <!-- End Navbar -->
+      <?php 
+         $bloodList = array();
+         $sql = "SELECT * FROM blood";
+         $resultM = $conn->query($sql);
+         
+         if ($resultM->num_rows > 0) {
+           while($row = $resultM->fetch_assoc()) {
+             $bloodList[$row["blood_id"]] = $row["blood_name"]; 
+           }
+         }
+
+         $sql = "SELECT * FROM data";
+         $resultG = $conn->query($sql);
+         
+         $sql = "SELECT * FROM patient";
+         $result = $conn->query($sql);
+
+         $sql = "SELECT * FROM patient_mass";
+         $result = $conn->query($sql);
+         ?>
+      <!-- End Database -->
       <div class="content">
         <div class="row">
           <div class="col-md-8">
@@ -164,7 +185,7 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="123456789" >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value=< >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
