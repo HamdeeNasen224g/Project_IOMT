@@ -206,9 +206,9 @@
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
                 <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
+                <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
               <div class="card-body">
-              <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
             </div>
           </div>
