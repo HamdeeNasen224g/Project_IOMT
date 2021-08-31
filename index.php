@@ -115,7 +115,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="../img/tan.jpg" alt="Profile Photo">
+                    <img src="../img/anime3.png" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -431,8 +431,7 @@ $(
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          
          for (let i=0; i < feeds.length; i++)  {
-           xlabel[i] =  feeds[i].created_at;
-           console.log(formattedTime);
+           xlabel[i] = feeds[i].created_at;
            data1[i] = feeds[i].field1;
            data2[i] = feeds[i].field2;
            data3[i] = feeds[i].field3;  
