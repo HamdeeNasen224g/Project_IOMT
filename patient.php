@@ -151,26 +151,8 @@
         </div>
       </div>
       <!-- End Navbar -->
-<<<<<<< HEAD
+      <?php include 'pulldatafromdatabase.php'; ?>
 
- <?php include 'pulldatafromdatabase.php'; ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a2e599d912582b32039ca8550aaa3a07513b4a3
-=======
-     /* <?php 
-         $bloodList = array();
-         $sql = "SELECT * from patient p join patient_mass pm on p.hid = pm.hid join blood b on b.blood_id = p.blood_id";
-         $resultM = $conn->query($sql);
-         
-         if ($resultM->num_rows > 0) {
-           while($row = $resultM->fetch_assoc()) {
-             $bloodList[$row["blood_id"]] = $row["blood_name"]; 
-           }
-         }
-         ?>*/
->>>>>>> a262b8e7056378062b3b74e15244c1995fbee50c
       <!-- End Database -->
       <div class="content">
         <div class="row">
@@ -353,8 +335,6 @@
         window_width = $(window).width();
 
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
 
         $('.fixed-plugin a').click(function(event) {
           if ($(this).hasClass('switch-trigger')) {
