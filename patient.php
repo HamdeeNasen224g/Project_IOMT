@@ -164,7 +164,7 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="<?php echo $row['hid']?>" >
+                        <input type="text" class="form-control" disabled="" placeholder="<?php echo $row['hid']?>"  >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
