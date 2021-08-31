@@ -431,17 +431,6 @@ $(
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          
          for (let i=0; i < feeds.length; i++)  {
-          var date = new Date(feeds[i].created_at);
-          var dates = date.getdate();
-          var month = date.getMonth();
-          var year = date.getYear();
-          var hours = date.getHours();
-          var minutes = "0" + date.getMinutes();
-          var seconds = "0" + date.getSeconds();
-          var formattedTime = dates + '/' + month +'/' + year +" "+ hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-          console.log(formattedTime);
-
            xlabel[i] =  feeds[i].created_at;
            console.log(formattedTime);
            data1[i] = feeds[i].field1;
