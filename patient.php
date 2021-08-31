@@ -200,8 +200,8 @@
                         <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
                       </div>
                     </div>
-                    <div class="col-md-3 pr-md-1">
-                      <div class="">
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-ground">
                         <label>Postal Code</label>
                         <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
                       </div>
@@ -214,15 +214,15 @@
                         <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
-                    <div class="col-md-3 pl-md-1">
-                      <div class="">
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-groud">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
                        </div>
                     </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="">
-                      <label>time updated</label>
+                    <div class="col-md-4 pl-md-1">
+                      <div class="form-groud">
+                      <label>Time updated</label>
                         <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
                        </div>
                     </div>
@@ -250,8 +250,8 @@
                   </div>
                 </p>
                 <div class="card-description">
-                medical history
-                  see a psychiatrist for treatment Generalized Anxiety Disorder
+                  Medical History
+                  See A Psychiatrist For Treatment Generalized Anxiety Disorder
                 </div>
               </div>
               <div class="card-footer">
