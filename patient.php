@@ -151,20 +151,31 @@
         </div>
       </div>
       <!-- End Navbar -->
-
-      <!-- End Database -->
-      <?php include 'db_con.php'; ?>
       <?php 
          $bloodList = array();
          $sql = "SELECT * FROM blood";
-         $resultB = $conn->query($sql);
-          
-         if ($resultB->num_rows > 0) {
-           while($row = $resultB->fetch_assoc()) {
+         $resultM = $conn->query($sql);
+         
+         if ($resultM->num_rows > 0) {
+           while($row = $resultM->fetch_assoc()) {
              $bloodList[$row["blood_id"]] = $row["blood_name"]; 
            }
          }
+<<<<<<< HEAD
+
+         $sql = "SELECT * FROM data";
+         $resultG = $conn->query($sql);
+         
+         $sql = "SELECT * FROM patient";
+         $result = $conn->query($sql);
+
+         $sql = "SELECT * FROM patient_mass";
+         $result = $conn->query($sql);
+         //<?php echo $row['hid']?>
+=======
+>>>>>>> a345811995dd21b2d869c75062492c043f506ae0
          ?>
+      <!-- End Database -->
       <div class="content">
         <div class="row">
           <div class="col-md-8">
@@ -178,7 +189,7 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="<?php echo $row['hid']?>"  >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
@@ -275,8 +286,13 @@
                     </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+<<<<<<< HEAD
                   <a href="https://www.instagram.com/mtantana_/">  
                   <i class="fab fa-instagram"></i>
+=======
+                  <a href="https://www.facebook.com/mtuntana">  
+                  <i class="fab fa-google-plus"></i>
+>>>>>>> 4745a79a012247a7cbf2131ef5305a469168f810
                   </a>
                   </button>
                 </div>
@@ -313,7 +329,6 @@
       </ul>
     </div>
   </div>
-
   <!--   Core JS Files   -->
   <script src="../js/core/jquery.min.js"></script>
   <script src="../js/core/popper.min.js"></script>
@@ -329,7 +344,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
-
+  <?php include 'db_con.php'; ?>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -449,6 +464,8 @@
         application: "black-dashboard-free"
       });
   </script>
+
   <?php include 'db_close.php'; ?>
+
 </body>
 </html>
