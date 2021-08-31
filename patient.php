@@ -208,7 +208,7 @@
                     </div>
                   </div>
                   <div class="row">               
-                    <div class="col-md-4 px-md-1">
+                    <div class="col-md-4 pr-md-1">
                       <div class="form-groud">
                         <label>Weight</label>
                         <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
