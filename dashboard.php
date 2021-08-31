@@ -784,7 +784,7 @@ $(
         var data2=[];
         var data3=[];
 
-      let url = "https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=10";
+      let url = "https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=15";
       $.getJSON(url,function( data) {
             let feeds = data.feeds;
             console.log(data);
