@@ -379,8 +379,8 @@
        });
      }
      function showChart2(data,xlabel,id,label){      
-       var ctx = document.getElementById(id).getContext('2d');
-       var myChart1 = new Chart (ctx, {
+       var ctx1 = document.getElementById(id).getContext('2d');
+       var myChart1 = new Chart (ctx1, {
            type: 'line',
            data: {
                labels: xlabel,
@@ -397,8 +397,8 @@
      }
 
      function showChart3(data,xlabel,id,label){      
-       var ctx = document.getElementById(id).getContext('2d');
-       var myChart2 = new Chart (ctx, {
+       var ctx2 = document.getElementById(id).getContext('2d');
+       var myChart2 = new Chart (ctx2, {
            type: 'line',
            data: {
                labels: xlabel,
@@ -413,7 +413,6 @@
    
        });
      }
-  
 $(
    ()=>{
       // alert("Thank God");
