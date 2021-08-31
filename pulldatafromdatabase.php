@@ -4,9 +4,25 @@
          $resultM = $conn->query($sql);
       
          if ($resultM->num_rows > 0) {
-            while($row = $resultM->fetch_assoc()) {
-              $bloodList[$row["blood_id"]] = $row["blood_name"]; 
-            }
+            while($row = $resultM->fetch_assoc())  while($row = $result->fetch_assoc()) {
+                $blood_id = $row['blood_id'];
+                $blood_name = $row['blood_name'];
+                $hid = $row['hid'];
+                $p_Fname =  $row['p_Fname'];
+                $p_Lname = $row['p_Lname'];
+                $dob = $row['dob'];
+                $address = $row['address'];              
+                $weight = $row['weight'];
+                $height = $row['height'];
+                $timestamp = $row['timestamp'];
+
+
+
+               
+               ?>
+                    
+                <?php
+              }
           }      
 
 ?>
