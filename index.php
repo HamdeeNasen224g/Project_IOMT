@@ -157,8 +157,9 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Shipments</h5>
-                    <h2 class="card-title">Performance</h2>
+                    <h5 class="card-category">Total Temperature</h5>
+                    <h2 class="card-title">Temperature</h2>
+                    <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
                   </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
@@ -196,9 +197,14 @@
                 <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
               </div>
               <div class="card-body">
+<<<<<<< HEAD
               <div class="chart-area">
                   <canvas id="myChart1"></canvas>
                 </div> </div>
+=======
+              <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+              </div>
+>>>>>>> 8b89058e864244260dd616a3cf96928d334aab37
             </div>
           </div>
           <div class="col-lg-4">
@@ -206,7 +212,9 @@
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
                 <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
+                <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
+<<<<<<< HEAD
               <div class="card-body"><div class="chart-area">
                   <canvas id="myChart2"></canvas>
                 </div> </div>
@@ -224,6 +232,12 @@
             </div>
           </div>
         </div>
+=======
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+>>>>>>> 8b89058e864244260dd616a3cf96928d334aab37
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <div class="card card-tasks">
