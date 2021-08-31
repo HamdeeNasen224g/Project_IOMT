@@ -372,15 +372,14 @@
                    data: data,
                    fill: false,
                    borderColor: 'rgb(102, 255, 178)',
-                   tension: 0.1
                }]
            }
    
        });
      }
      function showChart2(data,xlabel,id,label){      
-       var ctx1 = document.getElementById(id).getContext('2d');
-       var myChart1 = new Chart (ctx1, {
+       var ctx = document.getElementById(id).getContext('2d');
+       var myChart = new Chart (ctx, {
            type: 'line',
            data: {
                labels: xlabel,
@@ -389,7 +388,6 @@
                    data: data,
                    fill: false,
                    borderColor: 'rgb(0, 255, 255)',
-                   tension: 0.1
                }]
            }
    
@@ -397,8 +395,8 @@
      }
 
      function showChart3(data,xlabel,id,label){      
-       var ctx2 = document.getElementById(id).getContext('2d');
-       var myChart2 = new Chart (ctx2, {
+       var ctx = document.getElementById(id).getContext('2d');
+       var myChart = new Chart (ctx, {
            type: 'line',
            data: {
                labels: xlabel,
@@ -407,7 +405,6 @@
                    data: data,
                    fill: false,
                    borderColor: 'rgb(255, 51, 153)',
-                   tension: 0.1
                }]
            }
    
@@ -443,7 +440,7 @@ $(
     var label3 = 'Temperature';
      showChart1(data1,xlabel,id1,label1);
      showChart2(data2,xlabel,id2,label2);
-     showChart2(data3,xlabel,id3,label3); 
+     showChart3(data3,xlabel,id3,label3); 
      });     
      console.log(xlabel);    
      console.log(data1);
