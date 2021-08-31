@@ -201,7 +201,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
-                <h3 class="card-title"><i class="tim-icons icon-sound-wave text-info"></i> SPO2 <span id ="spo2"></h3>
+                <h3 class="card-title"><i class="tim-icons icon-sound-wave text-info"></i> SPO2 : <span id ="spo2"></h3>
               </div>
               <div class="card-body">
               <div class="chart-area">
@@ -214,7 +214,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total TEMPERATURE</h5>
-                <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMP <span id ="temp"></h3>
+                <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMP : <span id ="temp"></h3>
               </div>
               <div class="card-body">
                 <div class="chart-area">
