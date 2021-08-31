@@ -249,8 +249,8 @@
                     </p>
                   </div>
                 </p>
-                <div class="card-description">
-                medical history
+                <div class="description">
+                  Medical history
                   see a psychiatrist for treatment Generalized Anxiety Disorder
                 </div>
               </div>
