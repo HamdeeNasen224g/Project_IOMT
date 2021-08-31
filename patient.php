@@ -323,6 +323,7 @@
       </ul>
     </div>
   </div>
+  <?php include 'db_close.php'; ?>
   <!--   Core JS Files   -->
   <script src="../js/core/jquery.min.js"></script>
   <script src="../js/core/popper.min.js"></script>
@@ -459,7 +460,7 @@
       });
   </script>
 
-  <?php include 'db_close.php'; ?>
+
 
 </body>
 </html>
