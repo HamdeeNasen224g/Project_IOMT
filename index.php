@@ -97,7 +97,7 @@
               <li class="dropdown nav-item">
                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="notification d-none d-lg-block d-xl-block"></div>
-                  <i class="tim-icons icon-sound-wave"></i>
+                  <i class="tim-icons icon-bell-55"></i>
                   <p class="d-lg-none">
                     Notifications
                   </p>
@@ -188,7 +188,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total BPM</h5>
-                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
+                <h3 class="card-title"><i class="tim-icons icon-heart-2 text-primary"></i> BPM </h3>
               </div>
               <div class="card-body">
               <div class="chart-area">
@@ -201,7 +201,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
+                <h3 class="card-title"><i class="tim-icons icon-sound-wave text-info"></i> SPO2 </h3>
               </div>
               <div class="card-body">
               <div class="chart-area">
@@ -214,7 +214,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total TEMPERATURE</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> TEMPERATURE</h3>
+                <h3 class="card-title"><i class="tim-icons icon-chart-pie-36"></i> TEMPERATURE</h3>
               </div>
               <div class="card-body">
                 <div class="chart-area">
