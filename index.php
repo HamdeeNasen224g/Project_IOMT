@@ -224,7 +224,6 @@
             </div>
           </div>
         </div>
-
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
