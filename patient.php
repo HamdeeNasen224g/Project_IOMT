@@ -256,10 +256,14 @@
                     </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+                  <a href="https://www.facebook.com/mtuntana">
                     <i class="fab fa-twitter"></i>
+                    </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-                    <i class="fab fa-google-plus"></i>
+                  <a href="https://www.facebook.com/mtuntana">  
+                  <i class="fab fa-google-plus"></i>
+                  </a>
                   </button>
                 </div>
               </div>
