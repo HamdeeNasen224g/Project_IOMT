@@ -208,14 +208,14 @@
                     </div>
                   </div>
                   <div class="row">               
-                    <div class="col-md-3 px-md-1">
-                      <div class="form-group">
+                    <div class="col-md-4 px-md-1">
+                      <div class="form-groud">
                         <label>Weight</label>
                         <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
                        </div>
