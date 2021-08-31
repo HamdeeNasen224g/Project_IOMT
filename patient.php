@@ -151,14 +151,26 @@
         </div>
       </div>
       <!-- End Navbar -->
+<<<<<<< HEAD
 
  <?php include 'pulldatafromdatabase.php'; ?>
 <<<<<<< HEAD
-      <?php  
-        
-         ?>
+
 =======
 >>>>>>> 6a2e599d912582b32039ca8550aaa3a07513b4a3
+=======
+     /* <?php 
+         $bloodList = array();
+         $sql = "SELECT * from patient p join patient_mass pm on p.hid = pm.hid join blood b on b.blood_id = p.blood_id";
+         $resultM = $conn->query($sql);
+         
+         if ($resultM->num_rows > 0) {
+           while($row = $resultM->fetch_assoc()) {
+             $bloodList[$row["blood_id"]] = $row["blood_name"]; 
+           }
+         }
+         ?>*/
+>>>>>>> a262b8e7056378062b3b74e15244c1995fbee50c
       <!-- End Database -->
       <div class="content">
         <div class="row">
@@ -271,13 +283,8 @@
                     </a>
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-<<<<<<< HEAD
                   <a href="https://www.instagram.com/mtantana_/">  
                   <i class="fab fa-instagram"></i>
-=======
-                  <a href="https://www.facebook.com/mtuntana">  
-                  <i class="fab fa-google-plus"></i>
->>>>>>> 4745a79a012247a7cbf2131ef5305a469168f810
                   </a>
                   </button>
                 </div>
