@@ -159,7 +159,7 @@
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
                         <input type="radio" name="options" checked>
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN 123456789</span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN :<?php echo $hid;?></span>
                         <span class="d-block d-sm-none">
                           <i class="tim-icons icon-single-02"></i>
                         </a>
@@ -167,7 +167,7 @@
                       </label>
                       <a href="patient.php" class="btn btn-sm btn-primary btn-simple">
                         <input type="radio" class="d-none d-sm-none" name="options">
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Mantana laaiadkan</span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block"><?php echo $p_Fname." ".$p_Lname;?></span>
                         <span class="d-block d-sm-none"></span>
                         </span>
                       </a>
