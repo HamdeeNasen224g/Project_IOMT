@@ -158,7 +158,6 @@
                 <div class="row">
                   <div class="col-sm-6 text-left">
                     <h5 class="card-category">Total Shipments</h5>
-
                     <h2 class="card-title">Performance</h2>
                   </div>
                   <div class="col-sm-6 text-left">
@@ -193,15 +192,15 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <!-- <h5 class="card-category"></h5>-->
-                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
-                <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                <h5 class="card-category">Total Shipments</h5>
+                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
               </div>
               <div class="card-body">
-               
-                  
-                
+                <div class="chart-area">
+                  <canvas id="chartLinePurple"></canvas>
+                </div>
               </div>
+              
             </div>
           </div>
           <div class="col-lg-4">
