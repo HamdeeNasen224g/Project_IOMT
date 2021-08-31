@@ -202,20 +202,20 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code" value="80160">
-                      </div>
-                    </div>
                   <div class="row">
                     <div class="col-md-4 pr-md-1">
                       <div class="form-group">
-                        <label>Weight"</label>
-                        <input type="text" class="form-control" placeholder="Weight" value="89">
+                        <label>Postal Code</label>
+                        <input type="text" class="form-control" placeholder="ZIP Code" value="80160">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
+                      <div class="form-group">
+                        <label>Weight</label>
+                        <input type="text" class="form-control" placeholder="Weight" value="89">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-md-1">
                       <div class="form-group">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="Height" value="160">
