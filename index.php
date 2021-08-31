@@ -152,8 +152,8 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Temperature</h5>
-                    <h2 class="card-title">Temperature</h2>
+                    <h5 class="card-category">Status</h5>
+                    <h2 class="card-title">Notification center</h2>
                   </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
