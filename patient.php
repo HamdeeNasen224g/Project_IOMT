@@ -194,7 +194,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                       <div class="">
                         <label>Address</label>
                         <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
