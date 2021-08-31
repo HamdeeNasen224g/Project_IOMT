@@ -361,10 +361,8 @@
 
 <script>
      
-     function showChart(data,xlabel,id,label){      
+     function showChart1(data,xlabel,id,label){      
        var ctx = document.getElementById(id).getContext('2d');
-     //  var xlabel = [1,2,3,4,5,6,7,];
-     //  var data1 = [65, 59, 80, 56, 55, 40,32];
        var myChart = new Chart (ctx, {
            type: 'line',
            data: {
@@ -373,7 +371,41 @@
                    label: label,
                    data: data,
                    fill: false,
-                   borderColor: 'rgb(75, 192, 192)',
+                   borderColor: 'rgb(102, 255, 178)',
+                   tension: 0.1
+               }]
+           }
+   
+       });
+     }
+     function showChart2(data,xlabel,id,label){      
+       var ctx = document.getElementById(id).getContext('2d');
+       var myChart = new Chart (ctx, {
+           type: 'line',
+           data: {
+               labels: xlabel,
+               datasets: [{
+                   label: label,
+                   data: data,
+                   fill: false,
+                   borderColor: 'rgb(0, 255, 255)',
+                   tension: 0.1
+               }]
+           }
+   
+       });
+     }
+     function showChart3(data,xlabel,id,label){      
+       var ctx = document.getElementById(id).getContext('2d');
+       var myChart = new Chart (ctx, {
+           type: 'line',
+           data: {
+               labels: xlabel,
+               datasets: [{
+                   label: label,
+                   data: data,
+                   fill: false,
+                   borderColor: 'rgb(255, 51, 153)',
                    tension: 0.1
                }]
            }
@@ -409,9 +441,9 @@ $(
     var label1 = 'BPM (BPM)';
     var label2 = 'Sp02%';
     var label3 = 'Temperature';
-     showChart(data1,xlabel,id1,label1);
-     showChart(data2,xlabel,id2,label2);
-     showChart(data3,xlabel,id3,label3); 
+     showChart1(data1,xlabel,id1,label1);
+     showChart2(data2,xlabel,id2,label2);
+     showChart2(data3,xlabel,id3,label3); 
      });     
      console.log(xlabel);    
      console.log(data1);
