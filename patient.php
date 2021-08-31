@@ -170,7 +170,7 @@
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" disabled="" placeholder="First Name" value="Mantana">
+                        <input type="text" class="form-control" placeholder="First Name" value="Mantana">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
@@ -190,7 +190,7 @@
                     <div class="col-md-6 pl-md-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                        <input type="text" class="form-control" placeholder="Blood type" value="AB">
                       </div>
                     </div>
                   </div>
