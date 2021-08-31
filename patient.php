@@ -157,22 +157,34 @@
       <?php 
          $bloodList = array();
          $sql = "SELECT * FROM blood";
-         $resultM = $conn->query($sql);
-         
-         if ($resultM->num_rows > 0) {
-           while($row = $resultM->fetch_assoc()) {
+         $resultB = $conn->query($sql);
+          
+         if ($resultB->num_rows > 0) {
+           while($row = $resultB->fetch_assoc()) {
              $bloodList[$row["blood_id"]] = $row["blood_name"]; 
            }
          }
 
          $sql = "SELECT * FROM data";
-         $resultG = $conn->query($sql);
-         
+         $resultD = $conn->query($sql);
+
+         if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+
          $sql = "SELECT * FROM patient";
-         $result = $conn->query($sql);
+         $resultP = $conn->query($sql);
+
+         if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
 
          $sql = "SELECT * FROM patient_mass";
-         $result = $conn->query($sql);
+         $resultM = $conn->query($sql);
+
+         if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
          //<?php echo $row['hid']
          ?>
       <div class="content">
