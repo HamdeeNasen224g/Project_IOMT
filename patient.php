@@ -184,12 +184,12 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="Birthday Date" value="07-09-2000">
+                        <input type="text" class="form-control" placeholder="Birthday Date" value="2000-09-07">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
                       <div class="form-group">
-                        <label>Last Name</label>
+                        <label>Blood type</label>
                         <input type="text" class="form-control" placeholder="Blood type" value="AB">
                       </div>
                     </div>
@@ -205,20 +205,14 @@
                   <div class="row">
                     <div class="col-md-4 pr-md-1">
                       <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Mike">
+                        <label>Weight"</label>
+                        <input type="text" class="form-control" placeholder="Weight" value="89">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
+                        <label>Height</label>
+                        <input type="text" class="form-control" placeholder="Height" value="160">
                       </div>
                     </div>
                   </div>
