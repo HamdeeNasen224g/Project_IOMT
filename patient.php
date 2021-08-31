@@ -2,15 +2,10 @@
 =========================================================
 * * Black Dashboard - v1.0.1
 =========================================================
-
 * Product Page: https://www.creative-tim.com/product/black-dashboard
 * Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-
 * Coded by Creative Tim
-
 =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
@@ -34,7 +29,8 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../demo/demo.css" rel="stylesheet" />
 </head>
-
+<?php include 'db_con.php'; ?>
+  <?php include 'pulldatafromdatabase.php'; ?>
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
@@ -151,7 +147,8 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <?php include 'pulldatafromdatabase.php'; ?>
+      
+
       <!-- End Database -->
       <div class="content">
         <div class="row">
@@ -164,64 +161,70 @@
                 <form>
                   <div class="row">
                     <div class="col-md-3 pr-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="" >
+                        <input type="text" class="form-control" disabled="" placeholder="<?php echo $hid;?>" value="" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="">
+                        <input type="text" class="form-control" placeholder="<?php echo $p_Fname;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="">
+                        <input type="text" class="form-control" placeholder="<?php echo $p_Lname;?>" value="">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="Birthday Date" value="">
+                        <input type="text" class="form-control" placeholder="<?php echo $dob;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Blood type</label>
-                        <input type="text" class="form-control" placeholder="Blood type" value="">
+                        <input type="text" class="form-control" placeholder="<?php echo $blood_name;?>" value="">
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
+                    <div class="col-md-9">
+                      <div class="">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="">
+                        <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
+                      </div>
+                    </div>
+                    <div class="col-md-3 pr-md-1">
+                      <div class="">
+                        <label>Postal Code</label>
+                        <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-3 pr-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="ZIP Code" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-md-1">
-                      <div class="form-group">
+                  <div class="row">               
+                    <div class="col-md-4 px-md-1">
+                      <div class="">
                         <label>Weight</label>
-                        <input type="text" class="form-control" placeholder="Weight" value="">
+                        <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
-                    <div class="col-md-3 pl-md-1">
-                      <div class="form-group">
+                    <div class="col-md-4 pl-md-1">
+                      <div class="">
                         <label>Height</label>
-                        <input type="text" class="form-control" placeholder="Height" value="">
-                      </div>
+                        <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
+                       </div>
+                    </div>
+                    <div class="col-md-4 px-md-1">
+                      <div class="">
+                      <label>time updated</label>
+                        <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
+                       </div>
                     </div>
                   </div>
                 </form>
@@ -239,7 +242,7 @@
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
                       <img class="avatar" src="../img/tan.jpg" alt="...">
-                      <h5 class="title">Mantana Laaiadkan</h5>
+                      <h5 class="title"><?php echo $p_Fname." ".$p_Lname;?></h5>
                     </a>
                     <p class="description">
                       3rd Year Student
@@ -317,7 +320,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
-  <?php include 'db_con.php'; ?>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {
