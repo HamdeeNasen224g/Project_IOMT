@@ -286,7 +286,7 @@
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
                   <a href="https://www.facebook.com/mtuntana">  
-                  <i class="fab fa-instagram-plus"></i>
+                  <i class="fab fa-instagram"></i>
                   </a>
                   </button>
                 </div>
