@@ -214,7 +214,7 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <!--<h5 class="card-category">Completed Tasks</h5>-->
+           <h5 class="card-category">Temp</h5>
                 <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Temp </h3>
               </div>
               <div class="card-body">
