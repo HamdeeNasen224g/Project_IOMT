@@ -1,0 +1,8 @@
+Write API Key : EY4O6UXAM0DI1HEA
+Read API Keys : 0XNU6KDCBYBZVW0U
+Write a Channel Feed : GET https://api.thingspeak.com/update?api_key=EY4O6UXAM0DI1HEA&field1=0
+Read a Channel Feed : GET https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=2
+Read a Channel Field : GET https://api.thingspeak.com/channels/1483314/fields/1.json?api_key=0XNU6KDCBYBZVW0U&results=2
+Read Channel Status Updates : GET https://api.thingspeak.com/channels/1483314/status.json?api_key=0XNU6KDCBYBZVW0U
+Channel ID: 1483314
+Author: mwa0000023401223
