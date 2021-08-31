@@ -257,7 +257,8 @@
                   </div>
                 </p>
                 <div class="card-description">
-                  Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                medical history
+                  see a psychiatrist for treatment Generalized Anxiety Disorder
                 </div>
               </div>
               <div class="card-footer">
