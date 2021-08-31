@@ -151,7 +151,7 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <?php include 'pulldatafromdatabase.php'; ?>
+      
 
       <!-- End Database -->
       <div class="content">
@@ -165,7 +165,7 @@
                 <form>
                   <div class="row">
                     <div class="col-md-3 pr-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Hospital Number</label>
                         <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="...." >
                       </div>
@@ -177,7 +177,7 @@
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Last Name</label>
                         <input type="text" class="form-control" placeholder="Last Name" value="Laaiadkan">
                       </div>
@@ -185,13 +185,13 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Birthday Date</label>
                         <input type="text" class="form-control" placeholder="Birthday Date" value="2000-09-07">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Blood type</label>
                         <input type="text" class="form-control" placeholder="Blood type" value="AB">
                       </div>
@@ -199,7 +199,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="form-group">
+                      <div class="">
                         <label>Address</label>
                         <input type="text" class="form-control" placeholder="Home Address" value="222/8 Village No. 10, Thai Buri Subdistrict, Tha Sala District, Nakhon Si Thammarat">
                       </div>
@@ -207,19 +207,19 @@
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Postal Code</label>
                         <input type="text" class="form-control" placeholder="ZIP Code" value="80160">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Weight</label>
                         <input type="text" class="form-control" placeholder="Weight" value="89">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
+                      <div class="">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="Height" value="160">
                       </div>
@@ -319,6 +319,7 @@
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
   <?php include 'db_con.php'; ?>
+  <?php include 'pulldatafromdatabase.php'; ?>
   <script>
     $(document).ready(function() {
       $().ready(function() {
