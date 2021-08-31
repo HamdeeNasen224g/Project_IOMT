@@ -151,6 +151,7 @@
         </div>
       </div>
       <!-- End Navbar -->
+<<<<<<< HEAD
       <?php 
          $bloodList = array();
          $sql = "SELECT * from patient p join patient_mass pm on p.hid = pm.hid join blood b on b.blood_id = p.blood_id";
@@ -162,6 +163,8 @@
            }
          }
          ?>
+=======
+>>>>>>> 6a2e599d912582b32039ca8550aaa3a07513b4a3
       <!-- End Database -->
       <div class="content">
         <div class="row">
