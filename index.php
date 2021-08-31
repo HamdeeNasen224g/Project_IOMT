@@ -201,7 +201,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
-                <h3 class="card-title"><i class="tim-icons icon-sound-wave text-info"></i> SPO2 </h3>
+                <h3 class="card-title"><i class="tim-icons icon-sound-wave text-primary"></i> SPO2 </h3>
               </div>
               <div class="card-body">
               <div class="chart-area">
