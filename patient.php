@@ -168,19 +168,19 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="<?php echo $hid;?>" >
+                        <input type="text" class="form-control" disabled="<?php echo $hid;?>" placeholder="Hospital Number" value="" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="<?php echo $p_Fname;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $p_Fname;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="<?php echo $p_Lname;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $p_Lname;?>" value="">
                       </div>
                     </div>
                   </div>
@@ -188,13 +188,13 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="Birthday Date" value="<?php echo $dob;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $dob;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
                       <div class="">
                         <label>Blood type</label>
-                        <input type="text" class="form-control" placeholder="Blood type" value="<?php echo $blood_name;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $blood_name;?>" value="">
                       </div>
                     </div>
                   </div>
@@ -202,7 +202,7 @@
                     <div class="col-md-12">
                       <div class="">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $address;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
                       </div>
                     </div>
                   </div>
@@ -210,21 +210,21 @@
                     <div class="col-md-4 pr-md-1">
                       <div class="">
                         <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="ZIP Code" value="<?php echo $zipcode;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="">
                         <label>Weight</label>
-                        <input type="text" class="form-control" placeholder="Weight" value="<?php echo $weight;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="">
                         <label>Height</label>
-                        <input type="text" class="form-control" placeholder="Height" value="<?php echo $height;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
                         <label>time updated</label>
-                        <input type="text" class="form-control" placeholder="time update" value="<?php echo $timestamp;?>">
+                        <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">
                                           
                       </div>
                     </div>
@@ -244,7 +244,7 @@
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
                       <img class="avatar" src="../img/tan.jpg" alt="...">
-                      <h5 class="title">Mantana Laaiadkan</h5>
+                      <h5 class="title"><?php echo $p_Fname." ".$p_Lname;?></h5>
                     </a>
                     <p class="description">
                       3rd Year Student
