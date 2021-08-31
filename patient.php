@@ -165,26 +165,26 @@
            }
          }
 
-         $sql = "SELECT * FROM data";
+         $sql = "SELECT * FROM data_patient";
          $resultD = $conn->query($sql);
 
-         if ($result->num_rows > 0) {
+         if ($resultD->num_rows > 0) {
           // output data of each row
-          while($row = $result->fetch_assoc()) {
+         while($row = $resultD->fetch_assoc()) {
 
          $sql = "SELECT * FROM patient";
          $resultP = $conn->query($sql);
 
-         if ($result->num_rows > 0) {
+         if ($resultP->num_rows > 0) {
           // output data of each row
-          while($row = $result->fetch_assoc()) {
+          while($row = $resultP->fetch_assoc()) {
 
          $sql = "SELECT * FROM patient_mass";
          $resultM = $conn->query($sql);
 
-         if ($result->num_rows > 0) {
+         if ($resultM->num_rows > 0) {
           // output data of each row
-          while($row = $result->fetch_assoc()) {
+          while($row = $resultM->fetch_assoc()) {
          //<?php echo $row['hid']
          ?>
       <div class="content">
