@@ -203,26 +203,22 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Daily Sales</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
+                <h5 class="card-category">Total SPO2</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="CountryChart"></canvas>
-                </div>
+              <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Completed Tasks</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+                <!--<h5 class="card-category">Completed Tasks</h5>-->
+                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Temp </h3>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="chartLineGreen"></canvas>
-                </div>
+              <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
             </div>
           </div>
