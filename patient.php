@@ -209,13 +209,13 @@
                   </div>
                   <div class="row">               
                     <div class="col-md-3 px-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Weight</label>
                         <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
                        </div>
