@@ -198,7 +198,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                        <input type="text" class="form-control" placeholder="Home Address" value="222/8 Village No. 10, Thai Buri Subdistrict, Tha Sala District, Nakhon Si Thammarat">
                       </div>
                     </div>
                   </div>
