@@ -432,18 +432,13 @@ $(
          
          for (let i=0; i < feeds.length; i++)  {
           var date = new Date(feeds[i].created_at);
-// Hours part from the timestamp
-var hours = date.getHours();
-// Minutes part from the timestamp
-var minutes = "0" + date.getMinutes();
-// Seconds part from the timestamp
-var seconds = "0" + date.getSeconds();
-
-// Will display time in 10:30:23 format
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-console.log(formattedTime);
-
+          var dates = date.getdate();
+          var month = date.getMonth();
+          var year = date.getYear();
+          var hours = date.getHours();
+          var minutes = "0" + date.getMinutes();
+          var seconds = "0" + date.getSeconds();
+          var formattedTime = dates + '/' + month +'/' + year +" "+ hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
            xlabel[i] =  feeds[i].created_at;
            console.log(formattedTime);
            data1[i] = feeds[i].field1;
