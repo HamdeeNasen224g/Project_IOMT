@@ -170,7 +170,7 @@
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="checkbox" class="form-control" placeholder="First Name" value="Mantana">
+                        <input type="radio" class="form-control" placeholder="First Name" value="Mantana">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
