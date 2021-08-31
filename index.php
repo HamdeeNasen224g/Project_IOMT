@@ -193,8 +193,8 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Total Shipments</h5>
-                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+                <!-- <h5 class="card-category"></h5>-->
+                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
               </div>
               <div class="card-body">
                
