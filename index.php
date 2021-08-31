@@ -196,8 +196,9 @@
                 <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
               </div>
               <div class="card-body">
-              <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-              </div>
+              <div class="chart-area">
+                  <canvas id="myChart1"></canvas>
+                </div> </div>
             </div>
           </div>
           <div class="col-lg-4">
@@ -206,9 +207,9 @@
                 <h5 class="card-category">Total SPO2</h5>
                 <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
               </div>
-              <div class="card-body">
-              <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-              </div>
+              <div class="card-body"><div class="chart-area">
+                  <canvas id="myChart2"></canvas>
+                </div> </div>
             </div>
           </div>
           <div class="col-lg-4">
@@ -217,9 +218,9 @@
            <h5 class="card-category">Temp</h5>
                 <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Temp </h3>
               </div>
-              <div class="card-body">
-              <iframe width="350" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-              </div>
+              <div class="card-body"><div class="chart-area">
+                  <canvas id="myChart3"></canvas>
+                </div> </div>
             </div>
           </div>
         </div>
@@ -669,6 +670,68 @@
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+     
+     function showChart(data,xlabel,id,label,colors){      
+       var ctx = document.getElementById(id).getContext('2d');
+     //  var xlabel = [1,2,3,4,5,6,7,];
+     //  var data1 = [65, 59, 80, 56, 55, 40,32];
+       var myChart = new Chart (ctx, {
+           type: 'line',
+           data: {
+               labels: xlabel,
+               datasets: [{
+                   label: label,
+                   data: data,
+                   fill: false,
+                   borderColor: color,
+                   tension: 0.1
+               }]
+           }
+   
+       });
+     }
+  
+$(
+   ()=>{
+      // alert("Thank God");
+        var xlabel=[];
+        var data1=[];
+        var data2=[];
+        var data3=[];
+
+      let url = "https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=10";
+      $.getJSON(url,function( data) {
+            let feeds = data.feeds;
+            console.log(data);
+             $("#lastTempearature").text(feeds[0].field2+" C");
+             $("#lastHumadity").text(feeds[0].field1+" %");
+             $("#lastUpdate").text(feeds[0].created_at);
+         
+         for (let i=0; i < feeds.length; i++)  {
+           xlabel[i] = feeds[i].created_at;
+           data1[i] = feeds[i].field1;
+           data2[i] = feeds[i].field2;
+           data3[i] = feeds[i].field3;  
+         } 
+     var id1 = 'myChart1';  
+    var id2 = 'myChart2';
+    var id3 = 'myChart3';
+    var label1 = 'BPM (BPM)';
+    var label2 = 'Sp02%';
+    var label3 = 'Temperature';
+    var color1 =  'rgb(102, 255, 178)';
+    var color1 =  'rgb(0, 255, 255)';
+    var color1 =  'rgb(255, 51, 153)';
+     showChart(data1,xlabel,id1,label1,color1);
+     showChart(data2,xlabel,id2,label2,color2);
+     showChart(data3,xlabel,id3,label3,color3); 
+     });     
+     console.log(xlabel);    
+     console.log(data1);
+     console.log(data2);
+     })     
+ </script>
   <script>
     window.TrackJS &&
       TrackJS.install({
