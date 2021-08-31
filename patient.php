@@ -237,10 +237,10 @@
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
                       <img class="avatar" src="../img/emilyz.jpg" alt="...">
-                      <h5 class="title">Mike Andrew</h5>
+                      <h5 class="title">Mantana Laaiadkan</h5>
                     </a>
                     <p class="description">
-                      Ceo/Co-Founder
+                      3rd Year Student
                     </p>
                   </div>
                 </p>
