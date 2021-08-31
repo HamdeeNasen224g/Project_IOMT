@@ -151,28 +151,6 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <?php 
-         $bloodList = array();
-         $sql = "SELECT * FROM blood";
-         $resultM = $conn->query($sql);
-         
-         if ($resultM->num_rows > 0) {
-           while($row = $resultM->fetch_assoc()) {
-             $bloodList[$row["blood_id"]] = $row["blood_name"]; 
-           }
-         }
-
-         $sql = "SELECT * FROM data";
-         $resultG = $conn->query($sql);
-         
-         $sql = "SELECT * FROM patient";
-         $result = $conn->query($sql);
-
-         $sql = "SELECT * FROM patient_mass";
-         $result = $conn->query($sql);
-         //<?php echo $row['hid']?>
-         ?>
-      <!-- End Database -->
       <div class="content">
         <div class="row">
           <div class="col-md-8">
@@ -337,6 +315,28 @@
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
   <?php include 'db_con.php'; ?>
+  <!-- End Database -->
+  <?php 
+         $bloodList = array();
+         $sql = "SELECT * FROM blood";
+         $resultM = $conn->query($sql);
+         
+         if ($resultM->num_rows > 0) {
+           while($row = $resultM->fetch_assoc()) {
+             $bloodList[$row["blood_id"]] = $row["blood_name"]; 
+           }
+         }
+
+         $sql = "SELECT * FROM data";
+         $resultG = $conn->query($sql);
+         
+         $sql = "SELECT * FROM patient";
+         $result = $conn->query($sql);
+
+         $sql = "SELECT * FROM patient_mass";
+         $result = $conn->query($sql);
+         //<?php echo $row['hid']
+         ?>
   <script>
     $(document).ready(function() {
       $().ready(function() {
