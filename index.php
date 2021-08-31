@@ -371,7 +371,7 @@
                    label: label,
                    data: data,
                    fill: false,
-                   borderColor: 'rgb(102, 255, 178)',
+                   borderColor: 'rgb(0, 204, 102)',
                }]
            }
    
