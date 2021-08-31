@@ -433,8 +433,7 @@ $(
          for (let i=0; i < feeds.length; i++)  {
            
            df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-            Date logDate = (Date) df.parseObject(df.format(feeds[i].created_at));
-            xlabel[i] =  logDate;
+           xlabel[i] = (Date) df.parseObject(df.format(feeds[i].created_at));
            data1[i] = feeds[i].field1;
            data2[i] = feeds[i].field2;
            data3[i] = feeds[i].field3;  
