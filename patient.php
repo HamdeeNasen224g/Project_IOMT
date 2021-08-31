@@ -34,7 +34,8 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../demo/demo.css" rel="stylesheet" />
 </head>
-
+<?php include 'db_con.php'; ?>
+  <?php include 'pulldatafromdatabase.php'; ?>
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
@@ -167,19 +168,19 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="...." >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="<?php echo $hid;?>" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="">
+                        <input type="text" class="form-control" placeholder="First Name" value="<?php echo $p_Fname;?>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="">
+                        <input type="text" class="form-control" placeholder="Last Name" value="<?php echo $p_Lname;?>">
                       </div>
                     </div>
                   </div>
@@ -187,13 +188,13 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="Birthday Date" value="">
+                        <input type="text" class="form-control" placeholder="Birthday Date" value="<?php echo $dob;?>">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
                       <div class="">
                         <label>Blood type</label>
-                        <input type="text" class="form-control" placeholder="Blood type" value="">
+                        <input type="text" class="form-control" placeholder="Blood type" value="<?php echo $blood_name;?>">
                       </div>
                     </div>
                   </div>
@@ -201,7 +202,7 @@
                     <div class="col-md-12">
                       <div class="">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="">
+                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $address;?>">
                       </div>
                     </div>
                   </div>
@@ -209,19 +210,22 @@
                     <div class="col-md-4 pr-md-1">
                       <div class="">
                         <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="ZIP Code" value="">
+                        <input type="text" class="form-control" placeholder="ZIP Code" value="<?php echo $zipcode;?>">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="">
                         <label>Weight</label>
-                        <input type="text" class="form-control" placeholder="Weight" value="">
+                        <input type="text" class="form-control" placeholder="Weight" value="<?php echo $weight;?>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="">
                         <label>Height</label>
-                        <input type="text" class="form-control" placeholder="Height" value="">
+                        <input type="text" class="form-control" placeholder="Height" value="<?php echo $height;?>">
+                        <label>time updated</label>
+                        <input type="text" class="form-control" placeholder="time update" value="<?php echo $timestamp;?>">
+                                          
                       </div>
                     </div>
                   </div>
@@ -318,8 +322,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
-  <?php include 'db_con.php'; ?>
-  <?php include 'pulldatafromdatabase.php'; ?>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {
