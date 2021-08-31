@@ -153,7 +153,7 @@
       <!-- End Navbar -->
       <?php 
          $bloodList = array();
-         $sql = "select * from patient p join patient_mass pm on p.hid = pm.hid join blood b on b.blood_id = p.blood_id";
+         $sql = "SELECT * from patient p join patient_mass pm on p.hid = pm.hid join blood b on b.blood_id = p.blood_id";
          $resultM = $conn->query($sql);
          
          if ($resultM->num_rows > 0) {
