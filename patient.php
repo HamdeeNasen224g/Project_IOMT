@@ -166,19 +166,19 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="...." >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="Mantana">
+                        <input type="text" class="form-control" placeholder="First Name" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Laaiadkan">
+                        <input type="text" class="form-control" placeholder="Last Name" value="">
                       </div>
                     </div>
                   </div>
@@ -186,13 +186,13 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="Birthday Date" value="2000-09-07">
+                        <input type="text" class="form-control" placeholder="Birthday Date" value="">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
                       <div class="form-group">
                         <label>Blood type</label>
-                        <input type="text" class="form-control" placeholder="Blood type" value="AB">
+                        <input type="text" class="form-control" placeholder="Blood type" value="">
                       </div>
                     </div>
                   </div>
@@ -200,7 +200,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="222/8 Village No. 10, Thai Buri Subdistrict, Tha Sala District, Nakhon Si Thammarat">
+                        <input type="text" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -208,19 +208,19 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="ZIP Code" value="80160">
+                        <input type="text" class="form-control" placeholder="ZIP Code" value="">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Weight</label>
-                        <input type="text" class="form-control" placeholder="Weight" value="89">
+                        <input type="text" class="form-control" placeholder="Weight" value="">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label>Height</label>
-                        <input type="text" class="form-control" placeholder="Height" value="160">
+                        <input type="text" class="form-control" placeholder="Height" value="">
                       </div>
                     </div>
                   </div>
