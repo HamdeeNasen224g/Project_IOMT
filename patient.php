@@ -200,8 +200,8 @@
                         <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
                       </div>
                     </div>
-                    <div class="col-md-3 pr-md-1">
-                      <div class="">
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-ground">
                         <label>Postal Code</label>
                         <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
                       </div>
