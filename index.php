@@ -2,15 +2,10 @@
 =========================================================
 * * Black Dashboard - v1.0.1
 =========================================================
-
 * Product Page: https://www.creative-tim.com/product/black-dashboard
 * Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
-
 * Coded by Creative Tim
-
 =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
@@ -197,14 +192,8 @@
                 <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> BPM </h3>
               </div>
               <div class="card-body">
-<<<<<<< HEAD
-              <div class="chart-area">
-                  <canvas id="myChart1"></canvas>
-                </div> </div>
-=======
               <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
->>>>>>> 8b89058e864244260dd616a3cf96928d334aab37
             </div>
           </div>
           <div class="col-lg-4">
@@ -212,32 +201,22 @@
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
                 <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> SPO2 </h3>
-                <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
-<<<<<<< HEAD
-              <div class="card-body"><div class="chart-area">
-                  <canvas id="myChart2"></canvas>
-                </div> </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card card-chart">
-              <div class="card-header">
-           <h5 class="card-category">Temp</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Temp </h3>
-              </div>
-              <div class="card-body"><div class="chart-area">
-                  <canvas id="myChart3"></canvas>
-                </div> </div>
-            </div>
-          </div>
-        </div>
-=======
               <div class="card-body">
+              <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
               </div>
             </div>
           </div>
->>>>>>> 8b89058e864244260dd616a3cf96928d334aab37
+
+    
+          
+            
+    
+
+          
+    
+    
+  
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <div class="card card-tasks">
@@ -571,19 +550,12 @@
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
-
         $full_page = $('.full-page');
-
         $sidebar_responsive = $('body > .navbar-collapse');
         sidebar_mini_active = true;
         white_color = false;
-
         window_width = $(window).width();
-
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
-
         $('.fixed-plugin a').click(function(event) {
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -593,33 +565,25 @@
             }
           }
         });
-
         $('.fixed-plugin .background-color span').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
-
           var new_color = $(this).data('color');
-
           if ($sidebar.length != 0) {
             $sidebar.attr('data', new_color);
           }
-
           if ($main_panel.length != 0) {
             $main_panel.attr('data', new_color);
           }
-
           if ($full_page.length != 0) {
             $full_page.attr('filter-color', new_color);
           }
-
           if ($sidebar_responsive.length != 0) {
             $sidebar_responsive.attr('data', new_color);
           }
         });
-
         $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
-
           if (sidebar_mini_active == true) {
             $('body').removeClass('sidebar-mini');
             sidebar_mini_active = false;
@@ -629,23 +593,18 @@
             sidebar_mini_active = true;
             blackDashboard.showSidebarMessage('Sidebar mini activated...');
           }
-
           // we simulate the window Resize so the charts will get updated in realtime.
           var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
-
           // we stop the simulation of Window Resize after the animations are completed
           setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
         });
-
         $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
-
           if (white_color == true) {
-
             $('body').addClass('change-background');
             setTimeout(function() {
               $('body').removeClass('change-background');
@@ -653,23 +612,17 @@
             }, 900);
             white_color = false;
           } else {
-
             $('body').addClass('change-background');
             setTimeout(function() {
               $('body').removeClass('change-background');
               $('body').addClass('white-content');
             }, 900);
-
             white_color = true;
           }
-
-
         });
-
         $('.light-badge').click(function() {
           $('body').addClass('white-content');
         });
-
         $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
         });
@@ -680,72 +633,9 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
-
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-     
-     function showChart(data,xlabel,id,label,colors){      
-       var ctx = document.getElementById(id).getContext('2d');
-     //  var xlabel = [1,2,3,4,5,6,7,];
-     //  var data1 = [65, 59, 80, 56, 55, 40,32];
-       var myChart = new Chart (ctx, {
-           type: 'line',
-           data: {
-               labels: xlabel,
-               datasets: [{
-                   label: label,
-                   data: data,
-                   fill: false,
-                   borderColor: color,
-                   tension: 0.1
-               }]
-           }
-   
-       });
-     }
-  
-$(
-   ()=>{
-      // alert("Thank God");
-        var xlabel=[];
-        var data1=[];
-        var data2=[];
-        var data3=[];
-
-      let url = "https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=10";
-      $.getJSON(url,function( data) {
-            let feeds = data.feeds;
-            console.log(data);
-             $("#lastTempearature").text(feeds[0].field2+" C");
-             $("#lastHumadity").text(feeds[0].field1+" %");
-             $("#lastUpdate").text(feeds[0].created_at);
-         
-         for (let i=0; i < feeds.length; i++)  {
-           xlabel[i] = feeds[i].created_at;
-           data1[i] = feeds[i].field1;
-           data2[i] = feeds[i].field2;
-           data3[i] = feeds[i].field3;  
-         } 
-     var id1 = 'myChart1';  
-    var id2 = 'myChart2';
-    var id3 = 'myChart3';
-    var label1 = 'BPM (BPM)';
-    var label2 = 'Sp02%';
-    var label3 = 'Temperature';
-    var color1 =  'rgb(102, 255, 178)';
-    var color1 =  'rgb(0, 255, 255)';
-    var color1 =  'rgb(255, 51, 153)';
-     showChart(data1,xlabel,id1,label1,color1);
-     showChart(data2,xlabel,id2,label2,color2);
-     showChart(data3,xlabel,id3,label3,color3); 
-     });     
-     console.log(xlabel);    
-     console.log(data1);
-     console.log(data2);
-     })     
- </script>
   <script>
     window.TrackJS &&
       TrackJS.install({
@@ -754,5 +644,4 @@ $(
       });
   </script>
 </body>
-
 </html>
