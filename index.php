@@ -439,6 +439,9 @@ $(
           var minutes = "0" + date.getMinutes();
           var seconds = "0" + date.getSeconds();
           var formattedTime = dates + '/' + month +'/' + year +" "+ hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+          console.log(formattedTime);
+
            xlabel[i] =  feeds[i].created_at;
            console.log(formattedTime);
            data1[i] = feeds[i].field1;
