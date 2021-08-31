@@ -8,6 +8,8 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<?php include 'db_con.php'; ?>
+<?php include 'pulldatafromdatabase.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +115,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="../img/anime3.png" alt="Profile Photo">
+                    <img src="../img/tan.jpg" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -159,7 +161,7 @@
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
                         <input type="radio" name="options" checked>
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN 123456789</span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN :<?php echo $hid;?></span>
                         <span class="d-block d-sm-none">
                           <i class="tim-icons icon-single-02"></i>
                         </a>
@@ -167,7 +169,7 @@
                       </label>
                       <a href="patient.php" class="btn btn-sm btn-primary btn-simple">
                         <input type="radio" class="d-none d-sm-none" name="options">
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Mantana laaiadkan</span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block"><?php echo $p_Fname." ".$p_Lname;?></span>
                         <span class="d-block d-sm-none"></span>
                         </span>
                       </a>
