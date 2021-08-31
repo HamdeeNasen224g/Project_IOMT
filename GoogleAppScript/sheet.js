@@ -1,40 +1,97 @@
+
 function myFunction() {
     // Google sheets
-    var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1m0TazrRQGTMd0zyYJTijgw2SdlgXndPaa8mXz9FGDFs/edit?usp=sharing');
-    
+    var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1QfE0M5o-lNz7Lr5RkEaPbEzHpKQ4ZbS1MFhXOa2PLgM/edit#gid=0');
+    var workSheetName = "data1"; 
+    var data = doGet();
+    var check = 0 ;
+    console.log(data);
     //API
-    var st =  UrlFetchApp.fetch("https://magellan.ais.co.th/pullmessageapis/api/listen/thing/4F59D67F9BA2BC969B977BBDDE568F15");
-    var sst =  UrlFetchApp.fetch("https://magellan.ais.co.th/pullmessageapis/api/listen/thing/59740BBAF7C0BEB8891F1896ADF19ACD");
-  
+    var st =  UrlFetchApp.fetch("https://api.thingspeak.com/channels/1483314/feeds.json?api_key=0XNU6KDCBYBZVW0U&results=1");
+    
     // data API ST
     var content = st.getContentText();
     var json = JSON.parse(content);
-    var ThingName = json["ThingName"];
-    var HumidityEVM = json["Sensor"]["HumidityEVM"];
-    var Temperature1 = json["Sensor"]["Temperature1"];
-    var Temperature2  = json["Sensor"]["Temperature2"];
-    var TemperatureEVM = json["Sensor"]["TemperatureEVM"];
+
+ var timestamp = json.feeds[0].created_at;
+ var feed_id = json.feeds[0].entry_id;
+    var id = json.channel.id;
+    var bpm = json.feeds[0].field1;
+  var spo2 = json.feeds[0].field2;
+  var temp = json.feeds[0].field3;
   
-    // เลือกหน้า Yaring ST
+   var data = doGet(timestamp,feed_id,id);
+   console.log(data);
+    if(data == 1){
+    // เลือกหน้า sheet
     SpreadsheetApp.setActiveSpreadsheet(ss);
-    SpreadsheetApp.setActiveSheet(ss.getSheetByName("Yaring ST"));
+    SpreadsheetApp.setActiveSheet(ss.getSheetByName(workSheetName));
   
-    activeSheet=ss.getActiveSheet();
-    var timestamp = new Date();
-    activeSheet.appendRow([timestamp, HumidityEVM,Temperature1,Temperature2,TemperatureEVM]);
-  
-   // data API SST
-     var content = sst.getContentText();
-    var json = JSON.parse(content);
-    var ThingName = json["ThingName"];
-    var HumidityEVM = json["Sensor"]["humidity"];
-    var Temperature1 = json["Sensor"]["Temperature1"];
-    var Temperature2  = json["Sensor"]["Temperature2"];
-    var TemperatureEVM = json["Sensor"]["temperatureEVM"];
-    SpreadsheetApp.setActiveSpreadsheet(ss);
-    SpreadsheetApp.setActiveSheet(ss.getSheetByName("Yaring SST"));
-  
-    activeSheet=ss.getActiveSheet();
-    activeSheet.appendRow([timestamp, HumidityEVM,Temperature1,Temperature2,TemperatureEVM]);
-    
+   activeSheet=ss.getActiveSheet();
+   activeSheet.appendRow([timestamp,feed_id, id,bpm,spo2,temp]);
+   sendLineNotify(timestamp,bpm,spo2,temp);
+    }
   }
+
+
+function doGet(test1,test2,test3) {
+  // sheet id 
+  var ssread = SpreadsheetApp.openById("1QfE0M5o-lNz7Lr5RkEaPbEzHpKQ4ZbS1MFhXOa2PLgM");
+  SpreadsheetApp.setActiveSheet(ssread.getSheetByName("console"));
+  var sheet = ssread.getActiveSheet();
+  var check = 0;
+  var check1 = SpreadsheetApp.getActiveSheet().getRange(2, 1).getValue();
+  var check2 = SpreadsheetApp.getActiveSheet().getRange(2, 2).getValue();
+  var check3 = SpreadsheetApp.getActiveSheet().getRange(2, 3).getValue();
+  if(test1 == check1 && test2 == check2 && check3 == test3){
+  check = 0; }else{ check = 1; }
+  console.log(check1+" "+check2+" "+check3);
+  const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, sheet.getLastColumn()).getValues();
+  // Converts data rows in json format
+  const result = values.map(([a, b, c ]) => {
+    return ({ timestamp: a, Feed_id: b,Chanel_ID: c})
+  })
+
+  //console.log(result);
+  return check;
+ // return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+  }
+
+
+
+function cnvToThaiDateTime_(vDate) {
+  
+  var d = new Date(vDate);
+var formattedDate = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+var hours = (d.getHours() < 10) ? "0" + d.getHours() : d.getHours();
+var minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
+var formattedTime = hours + ":" + minutes;
+
+return formattedDate = formattedDate + " เวลา" + formattedTime + " น.";
+ 
+}
+
+
+function sendLineNotify(data1,data2,data3,data4) {
+  var time = cnvToThaiDateTime_(data1);
+  var messages = {
+        "message": "\nHello นายท่าน"+'\n'+'ข้อมูลวันที่ : '+ time   + '\n' +
+                        'ค่าชีพจร : '+ data2   + ' BPM\n' +
+                        'ค่าระดับออกซิเจนในเลือด Spo2 : '     + data3 + '%\n' +
+                        'อุณหภูมิ : '   + data4+ " ํCํ\n",
+        "stickerPackageId": "1",
+        "stickerId": "14"
+      };
+  
+  var url = "https://notify-api.line.me/api/notify";
+  var token = "cvamHIAsCMlPKswDH8DdMHzYO9Dp4H2vJDe43NC8I7D";
+  var options = {
+      "method": "post",
+      "payload": messages,
+      "headers": {
+        "Authorization": "Bearer " + token
+       }
+  };
+  
+  UrlFetchApp.fetch(url, options);
+}
