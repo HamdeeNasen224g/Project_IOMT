@@ -189,6 +189,7 @@
               <div class="card-header">
                 <h5 class="card-category">Total BPM</h5>
                 <h3 class="card-title"><i class="tim-icons icon-heart-2 text-success"></i> BPM </h3>
+                <h1  class="card-title"> <span id ="bpm">/</span></h1>
               </div>
               <div class="card-body">
               <div class="chart-area">
@@ -202,6 +203,7 @@
               <div class="card-header">
                 <h5 class="card-category">Total SPO2</h5>
                 <h3 class="card-title"><i class="tim-icons icon-sound-wave text-info"></i> SPO2 </h3>
+                <h1 class="card-title"><span id ="spo2">/</span></h1>
               </div>
               <div class="card-body">
               <div class="chart-area">
@@ -215,6 +217,7 @@
               <div class="card-header">
                 <h5 class="card-category">Total TEMPERATURE</h5>
                 <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMPERATURE</h3>
+                <h1  class="card-title"> <span id ="temp">/</span></h1>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -422,9 +425,10 @@ $(
       $.getJSON(url,function( data) {
             let feeds = data.feeds;
             console.log(data);
-             $("#lastTempearature").text(feeds[0].field2+" C");
-             $("#lastHumadity").text(feeds[0].field1+" %");
-             $("#lastUpdate").text(feeds[0].created_at);
+             $("#spo2").text(feeds[feeds.length-1].field2+" %");
+             $("#bpm").text(feeds[feeds.length-1].field1+" BPM");
+             $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
+             $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          
          for (let i=0; i < feeds.length; i++)  {
            xlabel[i] = feeds[i].created_at;
