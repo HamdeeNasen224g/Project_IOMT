@@ -431,7 +431,21 @@ $(
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          
          for (let i=0; i < feeds.length; i++)  {
+          var date = new Date(feeds[i].created_at);
+// Hours part from the timestamp
+var hours = date.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + date.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + date.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+console.log(formattedTime);
+
            xlabel[i] =  feeds[i].created_at;
+           console.log(formattedTime);
            data1[i] = feeds[i].field1;
            data2[i] = feeds[i].field2;
            data3[i] = feeds[i].field3;  
