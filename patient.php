@@ -194,7 +194,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                       <div class="">
                         <label>Address</label>
                         <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
@@ -222,7 +222,7 @@
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="form-groud">
-                      <label>time updated</label>
+                      <label>Time updated</label>
                         <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
                        </div>
                     </div>
