@@ -157,8 +157,9 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Shipments</h5>
-                    <h2 class="card-title">Performance</h2>
+                    <h5 class="card-category">Total Temperature</h5>
+                    <h2 class="card-title">Temperature</h2>
+                    <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
                   </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
@@ -211,18 +212,6 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="card card-chart">
-              <div class="card-header">
-           <h5 class="card-category">Temp</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Temp </h3>
-              </div>
-              <div class="card-body">
-              <iframe width="300" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1483314/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <div class="card card-tasks">
