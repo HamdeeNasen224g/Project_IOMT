@@ -380,7 +380,7 @@
      }
      function showChart2(data,xlabel,id,label){      
        var ctx = document.getElementById(id).getContext('2d');
-       var myChart = new Chart (ctx, {
+       var myChart1 = new Chart (ctx, {
            type: 'line',
            data: {
                labels: xlabel,
@@ -395,9 +395,10 @@
    
        });
      }
+
      function showChart3(data,xlabel,id,label){      
        var ctx = document.getElementById(id).getContext('2d');
-       var myChart = new Chart (ctx, {
+       var myChart2 = new Chart (ctx, {
            type: 'line',
            data: {
                labels: xlabel,
