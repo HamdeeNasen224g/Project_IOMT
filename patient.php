@@ -164,7 +164,6 @@
              $bloodList[$row["blood_id"]] = $row["blood_name"]; 
            }
          }
-
          ?>
       <div class="content">
         <div class="row">
