@@ -12,10 +12,10 @@
                 $p_Lname = $row['p_Lname'];
                 $dob = $row['dob'];
                 $address = $row['address']; 
-                $zipcode = $row['p.postalcode'];             
+                $zipcode = $row['postal code'];             
                 $weight = $row['weight'];
                 $height = $row['height'];
-                $timestamp = date('d/m/Y H:i:s', $row['pm.timestamp']);
+                $timestamp = $row['TimeStamp'];
            
                ?>
                     
