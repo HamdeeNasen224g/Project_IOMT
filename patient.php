@@ -314,6 +314,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
+  <?php include 'db_con.php'; ?>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -433,6 +434,8 @@
         application: "black-dashboard-free"
       });
   </script>
-</body>
 
+  <?php include 'db_close.php'; ?>
+
+</body>
 </html>
