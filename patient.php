@@ -214,14 +214,14 @@
                         <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
                       </div>
                     </div>
-                    <div class="col-md-3 pl-md-1">
-                      <div class="">
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-groud">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
                        </div>
                     </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="">
+                    <div class="col-md-4 pl-md-1">
+                      <div class="form-groud">
                       <label>time updated</label>
                         <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
                        </div>
