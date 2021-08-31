@@ -286,7 +286,7 @@
                   </button>
                   <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
                   <a href="https://www.facebook.com/mtuntana">  
-                  <i class="fab fa-google-plus"></i>
+                  <i class="fab fa-instagram-plus"></i>
                   </a>
                   </button>
                 </div>
@@ -323,7 +323,7 @@
       </ul>
     </div>
   </div>
-  <?php include 'db_close.php'; ?>
+
   <!--   Core JS Files   -->
   <script src="../js/core/jquery.min.js"></script>
   <script src="../js/core/popper.min.js"></script>
@@ -459,8 +459,6 @@
         application: "black-dashboard-free"
       });
   </script>
-
-
-
+  <?php include 'db_close.php'; ?>
 </body>
 </html>
