@@ -34,8 +34,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../demo/demo.css" rel="stylesheet" />
 </head>
-<?php include 'db_con.php'; ?>
-  <?php include 'pulldatafromdatabase.php'; ?>
+
 <body class="">
   <div class="wrapper">
     <div class="sidebar">
@@ -152,8 +151,7 @@
         </div>
       </div>
       <!-- End Navbar -->
-      
-
+      <?php include 'pulldatafromdatabase.php'; ?>
       <!-- End Database -->
       <div class="content">
         <div class="row">
@@ -166,70 +164,64 @@
                 <form>
                   <div class="row">
                     <div class="col-md-3 pr-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="<?php echo $hid;?>" value="" >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="...." >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $p_Fname;?>" value="">
+                        <input type="text" class="form-control" placeholder="First Name" value="Mantana">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $p_Lname;?>" value="">
+                        <input type="text" class="form-control" placeholder="Last Name" value="Laaiadkan">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Birthday Date</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $dob;?>" value="">
+                        <input type="text" class="form-control" placeholder="Birthday Date" value="2000-09-07">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
-                      <div class="">
+                      <div class="form-group">
                         <label>Blood type</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $blood_name;?>" value="">
+                        <input type="text" class="form-control" placeholder="Blood type" value="AB">
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-9">
-                      <div class="">
+                    <div class="col-md-12">
+                      <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-3 pr-md-1">
-                      <div class="">
-                        <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
+                        <input type="text" class="form-control" placeholder="Home Address" value="222/8 Village No. 10, Thai Buri Subdistrict, Tha Sala District, Nakhon Si Thammarat">
                       </div>
                     </div>
                   </div>
-                  <div class="row">               
-                    <div class="col-md-4 px-md-1">
-                      <div class="">
-                        <label>Weight</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $weight;?>" value="">
+                  <div class="row">
+                    <div class="col-md-3 pr-md-1">
+                      <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" class="form-control" placeholder="ZIP Code" value="80160">
                       </div>
                     </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="">
-                        <label>Height</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
-                       </div>
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-group">
+                        <label>Weight</label>
+                        <input type="text" class="form-control" placeholder="Weight" value="89">
+                      </div>
                     </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="">
-                      <label>time updated</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
-                       </div>
+                    <div class="col-md-3 pl-md-1">
+                      <div class="form-group">
+                        <label>Height</label>
+                        <input type="text" class="form-control" placeholder="Height" value="160">
+                      </div>
                     </div>
                   </div>
                 </form>
@@ -247,7 +239,7 @@
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
                       <img class="avatar" src="../img/tan.jpg" alt="...">
-                      <h5 class="title"><?php echo $p_Fname." ".$p_Lname;?></h5>
+                      <h5 class="title">Mantana Laaiadkan</h5>
                     </a>
                     <p class="description">
                       3rd Year Student
@@ -325,7 +317,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
-
+  <?php include 'db_con.php'; ?>
   <script>
     $(document).ready(function() {
       $().ready(function() {
