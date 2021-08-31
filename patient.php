@@ -199,20 +199,20 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-9">
                       <div class="">
                         <label>Address</label>
                         <input type="text" class="form-control" placeholder="<?php echo $address;?>" value="">
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-md-1">
+                    <div class="col-md-3 pr-md-1">
                       <div class="">
                         <label>Postal Code</label>
                         <input type="text" class="form-control" placeholder="<?php echo $zipcode;?>" value="">
                       </div>
                     </div>
+                  </div>
+                  <div class="row">               
                     <div class="col-md-4 px-md-1">
                       <div class="">
                         <label>Weight</label>
@@ -223,10 +223,13 @@
                       <div class="">
                         <label>Height</label>
                         <input type="text" class="form-control" placeholder="<?php echo $height;?>" value="">
-                        <label>time updated</label>
-                        <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">
-                                          
-                      </div>
+                       </div>
+                    </div>
+                    <div class="col-md-4 px-md-1">
+                      <div class="">
+                      <label>time updated</label>
+                        <input type="text" class="form-control" placeholder="<?php echo $timestamp;?>" value="">                                
+                       </div>
                     </div>
                   </div>
                 </form>
