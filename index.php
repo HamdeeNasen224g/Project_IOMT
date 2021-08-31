@@ -52,18 +52,22 @@
               <p>Dashboard</p>
             </a>
           </li>
-      
           <li>
             <a href="./map.php">
               <i class="tim-icons icon-pin"></i>
               <p>Maps</p>
             </a>
           </li>
-        
           <li>
             <a href="./patient.php">
               <i class="tim-icons icon-single-02"></i>
               <p>Patient Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/spreadsheets/d/1QfE0M5o-lNz7Lr5RkEaPbEzHpKQ4ZbS1MFhXOa2PLgM/edit?fbclid=IwAR37HzzQ8jFZPjCj25Iz8q90r9-d-vwCQdCj1GdiaGYElNDpJE3ctiuxmFw#gid=0">
+              <i class="tim-icons icon-notes"></i>
+              <p>Google Sheet</p>
             </a>
           </li>
         </ul>
