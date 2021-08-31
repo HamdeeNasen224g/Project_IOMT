@@ -164,13 +164,13 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="HN : 123456789" >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="123456789" >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="Mantana">
+                        <input type="text" class="form-control"  disabled="" placeholder="First Name" value="Mantana">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
