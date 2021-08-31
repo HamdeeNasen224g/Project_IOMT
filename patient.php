@@ -161,19 +161,6 @@
              $bloodList[$row["blood_id"]] = $row["blood_name"]; 
            }
          }
-<<<<<<< HEAD
-
-         $sql = "SELECT * FROM data";
-         $resultG = $conn->query($sql);
-         
-         $sql = "SELECT * FROM patient";
-         $result = $conn->query($sql);
-
-         $sql = "SELECT * FROM patient_mass";
-         $result = $conn->query($sql);
-         //<?php echo $row['hid']?>
-=======
->>>>>>> a345811995dd21b2d869c75062492c043f506ae0
          ?>
       <!-- End Database -->
       <div class="content">
@@ -189,7 +176,7 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>Hospital Number</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="" >
+                        <input type="text" class="form-control" disabled="" placeholder="Hospital Number" value="...." >
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
