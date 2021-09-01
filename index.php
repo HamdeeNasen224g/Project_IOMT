@@ -159,7 +159,7 @@
                 <div class="row">
                   <div class="col-sm-6 text-left">
                     <h5 class="card-category">Status</h5>
-                    <p><h2 class="card-title">Notification Center</h2></p>
+                    <br><h2 class="card-title">Notification Center</h2></br>
 
                     <div class="col-lg-4">
                     <div class="card card-chart">
@@ -230,7 +230,7 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Total TEMPERATURE</h5>
+                <h5 class="card-category">Total Temperature</h5>
                 <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMP : <span id ="temp"></h3>
               </div>
               <div class="card-body">
