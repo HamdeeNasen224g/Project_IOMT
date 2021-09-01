@@ -161,6 +161,7 @@
                   <div class="col-sm-6 text-left">
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
+                    
                     <div class="row">
                     <div class="col-sm-6">
                     <div class="card card-chart">
@@ -179,6 +180,7 @@
                         <h3 class="card-title"><i class=""></i> Safe</h3>
                       </div>
                     </div>
+                  </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="card card-chart">
