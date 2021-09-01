@@ -210,8 +210,8 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                <table class="table" style="overflow-x:auto;">
+                <div class="chart-area" style="overflow-x:auto;">
+                <table class="table">
     <thead>
       <h4> History of Data Danger</h4>
       
