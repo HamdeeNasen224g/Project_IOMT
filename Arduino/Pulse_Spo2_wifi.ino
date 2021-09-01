@@ -10,12 +10,14 @@
  * @date  2020-05-29
  * @url https://github.com/DFRobot/DFRobot_MAX30102
  */
+ #include <LiquidCrystal_PCF8574.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <DFRobot_MAX30102.h>
 #include <Adafruit_MLX90614.h>
 DFRobot_MAX30102 particleSensor;
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+LiquidCrystal_PCF8574 lcd(0x27);
 WiFiClient client;
 /*
 Macro definition options in sensor configuration
@@ -68,6 +70,8 @@ void setup()
 {
   //Init serial
   Serial.begin(115200);
+  lcd.begin(16, 2); // initialize the lcd
+  lcd.setBacklight(255);
   /*!
    *@brief Init sensor 
    *@param pWire IIC bus pointer object and construction device, can both pass or not pass parameters (Wire in default)
@@ -100,19 +104,39 @@ int32_t SPO2; //SPO2
 int8_t SPO2Valid; //Flag to display if SPO2 calculation is valid
 int32_t heartRate; //Heart-rate
 int8_t heartRateValid; //Flag to display if heart-rate calculation is valid 
-
+int i = 0;
+int x = 0;
+const byte RATE_SIZE = 4; //Increase this for more averaging. 4 is good.
+byte ratesheart[RATE_SIZE]; //Array of heart rates
+byte ratesspo2[RATE_SIZE]; //Array of heart rates
 void loop()
 {
   Serial.println(F("Wait about four seconds"));
   particleSensor.heartrateAndOxygenSaturation(/**SPO2=*/&SPO2, /**SPO2Valid=*/&SPO2Valid, /**heartRate=*/&heartRate, /**heartRateValid=*/&heartRateValid);
   if(heartRate > 20 and SPO2 > 20){
   //Print result 
+      if(i < 3){
+        ratesheart[i] = heartRate;
+        i++; }else{ 
+        ratesheart[i-1]= ratesheart[i];       
+        i++;      
+        if(i>3){ i = 0 ;}
+        }
+        heartRate = (ratesheart[0]+ratesheart[1]+ratesheart[2]+ratesheart[3])/4;
+        ratesheart[i] = heartRate; 
+        if(SPO2>100){SPO2 = 100; } 
+        if (heartRate > 180){ heartRate = 180;}     
   Serial.print(F("heartRate="));
   Serial.print(heartRate, DEC);
+  lcd.setCursor(0, 0);
+  lcd.print(F("heartRate= "));
+  lcd.print(heartRate, DEC);
   Serial.print(F(", heartRateValid="));
   Serial.print(heartRateValid, DEC);
   Serial.print(F("; SPO2="));
   Serial.print(SPO2, DEC);
+  lcd.print(F("; SPO2="));
+  lcd.print(SPO2, DEC);
   Serial.print(F(", SPO2Valid="));
   Serial.println(SPO2Valid, DEC);
   temp();
@@ -127,7 +151,10 @@ void temp(){
   A = mlx.readAmbientTempC();
   Serial.print("Ambient = "); Serial.print(A);
   Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
+  lcd.setCursor(0, 1);
+  lcd.print("Object = "); lcd.print(o); lcd.println("*C");
   Serial.println();
+  delay(1400);
   }
 
  void thingspeak(){ 
