@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category">Status BPM</h5>
-                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                        <h3 class="card-title"><i class=""></i> <?php echo $time ;?></h3>
                       </div>
                     </div>
                   </div>
