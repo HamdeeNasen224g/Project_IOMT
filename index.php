@@ -10,7 +10,7 @@
 -->
 <?php include 'db_con.php'; ?>
 <?php include 'pulldatafromdatabase.php'; ?>
-<?php include 'querygooglesheet.php'; ?>
+<?php include 'querydatadanger.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
