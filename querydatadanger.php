@@ -24,5 +24,4 @@ if(($feed[$i]->field1 < 60) or ($feed[$i]->field1 > 100) or ($feed[$i]->field2 <
 }
 
 }
-echo $alertdata[0][0];
 ?>
