@@ -165,15 +165,15 @@
                     <div class="card card-chart">
                       <div class="card-header">
                       <div class="col 6"></div>
-                        <h5 class="card-category text-primary">Status BPM</h5>
-                        <h3 class="card-title text-center"><i class=""></i>SAfe</h3>
+                        <h5 class="card-category text-success">Status BPM</h5>
+                        <h3 class="card-title text-center"><i class=""></i>Safe</h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="card card-chart">
                       <div class="card-header">
-                        <h5 class="card-category text-primary">Status SPO2</h5>
+                        <h5 class="card-category text-info">Status SPO2</h5>
                         <h3 class="card-title text-center"><i class=""></i> Safe</h3>
                       </div>
                     </div>
