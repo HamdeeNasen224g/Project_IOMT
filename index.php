@@ -10,7 +10,6 @@
 -->
 <?php include 'db_con.php'; ?>
 <?php include 'pulldatafromdatabase.php'; ?>
-<?php include 'querygooglesheet.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-primary">Status BPM</h5>
-                        <h3 class="card-title"><i class=""></i> <?php echo $time ;?></h3>
+                        <h3 class="card-title"><i class=""></i>SAfe</h3>
                       </div>
                     </div>
                   </div>
