@@ -173,6 +173,7 @@
                   <div class="col-sm-6">
                     <div class="card card-chart">
                       <div class="card-header">
+                      <div class="col 6"></div>
                         <h5 class="card-category">Status SPO2</h5>
                         <h3 class="card-title"><i class=""></i> Safe</h3>
                       </div>
@@ -186,8 +187,8 @@
                       </div>
                     </div>
                   </div>
-                  </div>
-                  </div>
+                </div>
+                </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
