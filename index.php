@@ -487,6 +487,8 @@ $(
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
           $("#statusbpm").text("Danger");
+         }else{
+          $("#statusbpm").text("Safe");
          }
          if(feeds[feeds.length-1].field2 <80 ){
           $("#statusspo2").text("Danger");
