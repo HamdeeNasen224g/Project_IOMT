@@ -8,9 +8,6 @@
 #define USEFIFO
 MAX30105 particleSensor;
 WiFiClient client;
-#include <Ticker.h>
-
-Ticker blinker;
 
 String thingSpeakAddress= "http://api.thingspeak.com/update?";
 String writeAPIKey;
@@ -42,10 +39,9 @@ double avered = 0;
 double aveir = 0;
 double sumirrms = 0;
 double sumredrms = 0;
-void HeartRate()
+void HeartRate(long irValue)
   {
-  long irValue = particleSensor.getIR();
-
+ 
   if (checkForBeat(irValue) == true)
   {
     //We sensed a beat!
@@ -182,15 +178,9 @@ void temp(){
       http.end();
       request_string="";
 
-    }
-    delay(15000);
-
+    }    
     }
     
-void changeState()
-{
-  thingspeak();  //Invert Current State of LED  
-}
   void setup() {
   Serial.begin(115200);
   checkmlx();
@@ -198,7 +188,7 @@ void changeState()
   particleSensor.begin();
   mlx.begin();
   init_wifi();
- blinker.attach(0.5, changeState);
+ 
   
 }
 
@@ -206,9 +196,9 @@ void loop() {
   long test = particleSensor.getIR();
   if(test > 50000){
 SPO2();
-HeartRate();
+HeartRate(test);
 temp();
- 
+ thingspeak();
 
   }else { Serial.print(" No finger?");}
 }
