@@ -165,7 +165,7 @@
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
                         <input type="radio" name="options" checked>
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN :<?php echo $hid;?></span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN <?php echo $hid;?></span>
                         <span class="d-block d-sm-none">
                           <i class="tim-icons icon-single-02"></i>
                         </a>
