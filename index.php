@@ -181,7 +181,6 @@
                       </div>
                     </div>
                   </div>
-                  </div>
                   <div class="col-sm-6">
                     <div class="card card-chart">
                       <div class="card-header">
@@ -191,6 +190,7 @@
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
                 </div>
                   <div class="col-sm-6 text-left">
