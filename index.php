@@ -175,7 +175,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statusspo2"></span>Safe</h3>
+                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statusspo2"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -492,9 +492,13 @@ $(
          }
          if(feeds[feeds.length-1].field2 <80 ){
           $("#statusspo2").text("Danger");
+         }else{
+          $("#statusspo2").text("Safe");
          }
          if(feeds[feeds.length-1].field3 > 37.5 || feeds[feeds.length-1].field3 < 34.5){
           $("#statustemp").text("Danger");
+         }else{
+          $("#statustemp").text("Safe");
          }
          
          for (let i=0; i < feeds.length; i++)  {
