@@ -10,6 +10,7 @@
  * @date  2020-05-29
  * @url https://github.com/DFRobot/DFRobot_MAX30102
  */
+ #include <Wire.h>
  #include <LiquidCrystal_PCF8574.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
@@ -17,7 +18,7 @@
 #include <Adafruit_MLX90614.h>
 DFRobot_MAX30102 particleSensor;
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
-LiquidCrystal_PCF8574 lcd(0x27);
+LiquidCrystal_PCF8574 lcd(0x3F);
 WiFiClient client;
 /*
 Macro definition options in sensor configuration
@@ -65,13 +66,20 @@ void checkmlx(){
   Serial.print("IP address: ");
   Serial.println((WiFi.localIP().toString()));
 }
-  
+  int error;
+
 void setup()
-{
+{ Wire.begin();
+ Wire.beginTransmission(0x27);
+  error = Wire.endTransmission();
+  Serial.print("Error: ");
+  Serial.print(error);
   //Init serial
   Serial.begin(115200);
   lcd.begin(16, 2); // initialize the lcd
   lcd.setBacklight(255);
+  lcd.setCursor(0, 0);
+  lcd.print(F("initialize......."));
   /*!
    *@brief Init sensor 
    *@param pWire IIC bus pointer object and construction device, can both pass or not pass parameters (Wire in default)
@@ -129,13 +137,13 @@ void loop()
   Serial.print(F("heartRate="));
   Serial.print(heartRate, DEC);
   lcd.setCursor(0, 0);
-  lcd.print(F("heartRate= "));
+  lcd.print(F("BPM= "));
   lcd.print(heartRate, DEC);
   Serial.print(F(", heartRateValid="));
   Serial.print(heartRateValid, DEC);
   Serial.print(F("; SPO2="));
   Serial.print(SPO2, DEC);
-  lcd.print(F("; SPO2="));
+  lcd.print(F("SPO2="));
   lcd.print(SPO2, DEC);
   Serial.print(F(", SPO2Valid="));
   Serial.println(SPO2Valid, DEC);
@@ -152,7 +160,7 @@ void temp(){
   Serial.print("Ambient = "); Serial.print(A);
   Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
   lcd.setCursor(0, 1);
-  lcd.print("Object = "); lcd.print(o); lcd.println("*C");
+  lcd.print("Temp= "); lcd.print(o); lcd.println("*C");
   Serial.println();
   delay(1400);
   }
