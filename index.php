@@ -192,7 +192,6 @@
                   </div>
                 </div>
                 </div>
-                </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
