@@ -160,8 +160,8 @@
                   <div class="col-sm-6 text-left">
                     <h5 class="card-category">Status</h5>
                     <br><h2 class="card-title">Notification Center</h2></br>
-
-                    <div class="col-lg-4 pr-md-1">
+                    <div class="row">
+                    <div class="col-lg-4 ">
                     <div class="card card-chart">
                       <div class="card-header">
                       <div class="col 6"></div>
@@ -170,7 +170,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4 px-md-1">
+                  <div class="col-lg-4 ">
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category">Status SPO2</h5>
@@ -185,6 +185,7 @@
                         <h3 class="card-title"><i class=""></i> Safe</h3>
                       </div>
                     </div>
+                  </div>
                   </div>
                   </div>
                   <div class="col-sm-6 text-left">
