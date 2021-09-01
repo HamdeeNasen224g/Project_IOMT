@@ -1,14 +1,32 @@
-#include <Wire.h>
-#include <Adafruit_MLX90614.h>
-#include "MAX30105.h"
-#include "heartRate.h"
+/*!
+ * @file SPO2.ino
+ * @brief Display heart-rate and SPO2 on serial in real-time, normal SPO2 is within 95~100
+ * @n Try to fix the sensor on your finger in using to avoid the effect of pressure change on data output.
+ * @n This library supports mainboards: ESP8266, FireBeetle-M0, UNO, ESP32, Leonardo, Mega2560
+ * @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @licence     The MIT License (MIT)
+ * @author [YeHangYu](hangyu.ye@dfrobot.com)
+ * @version  V0.1
+ * @date  2020-05-29
+ * @url https://github.com/DFRobot/DFRobot_MAX30102
+ */
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
-
-#define USEFIFO
-MAX30105 particleSensor;
+#include <DFRobot_MAX30102.h>
+#include <Adafruit_MLX90614.h>
+DFRobot_MAX30102 particleSensor;
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 WiFiClient client;
-
+/*
+Macro definition options in sensor configuration
+sampleAverage: SAMPLEAVG_1 SAMPLEAVG_2 SAMPLEAVG_4
+               SAMPLEAVG_8 SAMPLEAVG_16 SAMPLEAVG_32
+ledMode:       MODE_REDONLY  MODE_RED_IR  MODE_MULTILED
+sampleRate:    PULSEWIDTH_69 PULSEWIDTH_118 PULSEWIDTH_215 PULSEWIDTH_411
+pulseWidth:    SAMPLERATE_50 SAMPLERATE_100 SAMPLERATE_200 SAMPLERATE_400
+               SAMPLERATE_800 SAMPLERATE_1000 SAMPLERATE_1600 SAMPLERATE_3200
+adcRange:      ADCRANGE_2048 ADCRANGE_4096 ADCRANGE_8192 ADCRANGE_16384
+*/
 String thingSpeakAddress= "http://api.thingspeak.com/update?";
 String writeAPIKey;
 String tsfield1Name;
@@ -17,102 +35,10 @@ String api_key = "EY4O6UXAM0DI1HEA";
 HTTPClient http;
 
 
-const byte RATE_SIZE = 4; //Increase this for more averaging. 4 is good.
-byte rates[RATE_SIZE]; //Array of heart rates
-byte rateSpot = 0;
-long lastBeat = 0; //Time at which the last beat occurred
-float beatsPerMinute;
-int beatAvg;
-int i = 0;
-Adafruit_MLX90614 mlx = Adafruit_MLX90614();
-
-double ESpO2 = 95.0;//initial value of estimated SpO2
-double FSpO2 = 0.7; //filter factor for estimated SpO2
-double frate = 0.95; //low pass filter for IR/red LED value to eliminate AC component
-#define TIMETOBOOT 3000 // wait for this time(msec) to output SpO2
-#define SCALE 88.0 //adjust to display heart beat and SpO2 in the same scale
-#define SAMPLING 5 //if you want to see heart beat more precisely , set SAMPLING to 1
-#define FINGER_ON 30000 // if red signal is lower than this , it indicates your finger is not on the sensor
-#define MINIMUM_SPO2 80.0
-int Num = 100;//calculate SpO2 by this sampling interval
-double avered = 0; 
-double aveir = 0;
-double sumirrms = 0;
-double sumredrms = 0;
-void HeartRate(long irValue)
-  {
- 
-  if (checkForBeat(irValue) == true)
-  {
-    //We sensed a beat!
-    long delta = millis() - lastBeat;
-    lastBeat = millis();
-
-    beatsPerMinute = 60 / (delta / 1000.0);
-
-    if (beatsPerMinute < 255 && beatsPerMinute > 20)
-    {
-      rates[rateSpot++] = (byte)beatsPerMinute; //Store this reading in the array
-      rateSpot %= RATE_SIZE; //Wrap variable
-
-      //Take average of readings
-      beatAvg = 0;
-      for (byte x = 0 ; x < RATE_SIZE ; x++)
-        beatAvg += rates[x];
-      beatAvg /= RATE_SIZE;
-    }
-  }
-
-  Serial.print("IR=");
-  Serial.print(irValue);
-  Serial.print(", BPM=");
-  Serial.print(beatsPerMinute);
-  Serial.print(", Avg BPM=");
-  Serial.print(beatAvg);
-
-  Serial.println();
-  }
-  
-void SPO2(){
-  
-   uint32_t ir, red , green;
-  red = particleSensor.getFIFORed(); //Sparkfun's MAX30105
-    ir = particleSensor.getFIFOIR();  //Sparkfun's MAX30105
-   
-  double fred, fir;
-  double SpO2 = 0; //raw SpO2 before low pass filtered
-   
-    i++;
-    fred = (double)red;
-    fir = (double)ir;
-    avered = avered * frate + (double)red * (1.0 - frate);//average red level by low pass filter
-    aveir = aveir * frate + (double)ir * (1.0 - frate); //average IR level by low pass filter
-    sumredrms += (fred - avered) * (fred - avered); //square sum of alternate component of red level
-    sumirrms += (fir - aveir) * (fir - aveir);//square sum of alternate component of IR level
-    if ((i % SAMPLING) == 0) {//slow down graph plotting speed for arduino Serial plotter by thin out
-      if ( millis() > TIMETOBOOT) {
-        float ir_forGraph = (2.0 * fir - aveir) / aveir * SCALE;
-        float red_forGraph = (2.0 * fred - avered) / avered * SCALE;
-        //trancation for Serial plotter's autoscaling
-        if ( ir_forGraph > 100.0) ir_forGraph = 100.0;
-        if ( ir_forGraph < 80.0) ir_forGraph = 80.0;
-        if ( red_forGraph > 100.0 ) red_forGraph = 100.0;
-        if ( red_forGraph < 80.0 ) red_forGraph = 80.0;
-        //        Serial.print(red); Serial.print(","); Serial.print(ir);Serial.print(".");
-        if (ir < FINGER_ON) ESpO2 = MINIMUM_SPO2; //indicator for finger detached
-        float temperature = particleSensor.readTemperatureF();
-        
-        Serial.print(" Oxygen % = ");
-        Serial.println(ESpO2);
-   
-
-      }
-
-  }
-    }
 float o;
 float A;
 
+long prev = 0;
 void checkmlx(){
 
   while (!Serial);
@@ -128,30 +54,6 @@ void checkmlx(){
   Serial.println("================================================");
   }
   
-void checkmax(){
-  Serial.println("Initializing...");
-
-  // Initialize sensor
-  if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) //Use default I2C port, 400kHz speed
-  {
-    Serial.println("MAX30105 was not found. Please check wiring/power. ");
-    while (1);
-  }
-  Serial.println("Place your index finger on the sensor with steady pressure.");
-
-  particleSensor.setup(); //Configure sensor with default settings
-  particleSensor.setPulseAmplitudeRed(0x0A); //Turn Red LED to low to indicate sensor is running
-  particleSensor.setPulseAmplitudeGreen(0); //Turn off Green LED
-  }
-
-void temp(){
-  o = mlx.readObjectTempC();
-  A = mlx.readAmbientTempC();
-  Serial.print("Ambient = "); Serial.print(A);
-  Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
-  Serial.println();
-  }
-
   void init_wifi() {
    WiFi.begin("Ruskee_2.4G","Ruskee39924");
   do {
@@ -161,15 +63,82 @@ void temp(){
   Serial.print("IP address: ");
   Serial.println((WiFi.localIP().toString()));
 }
-  void thingspeak(){ 
+  
+void setup()
+{
+  //Init serial
+  Serial.begin(115200);
+  /*!
+   *@brief Init sensor 
+   *@param pWire IIC bus pointer object and construction device, can both pass or not pass parameters (Wire in default)
+   *@param i2cAddr Chip IIC address (0x57 in default)
+   *@return true or false
+   */
+   init_wifi();
+   checkmlx();
+   mlx.begin();
+  while (!particleSensor.begin()) {
+    Serial.println("MAX30102 was not found");
+    delay(1000);
+  }
+
+  /*!
+   *@brief Use macro definition to configure sensor 
+   *@param ledBrightness LED brightness, default value: 0x1F（6.4mA), Range: 0~255（0=Off, 255=50mA）
+   *@param sampleAverage Average multiple samples then draw once, reduce data throughput, default 4 samples average
+   *@param ledMode LED mode, default to use red light and IR at the same time 
+   *@param sampleRate Sampling rate, default 400 samples every second 
+   *@param pulseWidth Pulse width: the longer the pulse width, the wider the detection range. Default to be Max range
+   *@param adcRange ADC Measurement Range, default 4096 (nA), 15.63(pA) per LSB
+   */
+  particleSensor.sensorConfiguration(/*ledBrightness=*/50, /*sampleAverage=*/SAMPLEAVG_4, \
+                        /*ledMode=*/MODE_MULTILED, /*sampleRate=*/SAMPLERATE_100, \
+                        /*pulseWidth=*/PULSEWIDTH_411, /*adcRange=*/ADCRANGE_16384);
+}
+
+int32_t SPO2; //SPO2
+int8_t SPO2Valid; //Flag to display if SPO2 calculation is valid
+int32_t heartRate; //Heart-rate
+int8_t heartRateValid; //Flag to display if heart-rate calculation is valid 
+
+void loop()
+{
+  Serial.println(F("Wait about four seconds"));
+  particleSensor.heartrateAndOxygenSaturation(/**SPO2=*/&SPO2, /**SPO2Valid=*/&SPO2Valid, /**heartRate=*/&heartRate, /**heartRateValid=*/&heartRateValid);
+  if(heartRate > 20 and SPO2 > 20){
+  //Print result 
+  Serial.print(F("heartRate="));
+  Serial.print(heartRate, DEC);
+  Serial.print(F(", heartRateValid="));
+  Serial.print(heartRateValid, DEC);
+  Serial.print(F("; SPO2="));
+  Serial.print(SPO2, DEC);
+  Serial.print(F(", SPO2Valid="));
+  Serial.println(SPO2Valid, DEC);
+  temp();
+    if(millis() - prev >= 15000){
+    thingspeak();
+    prev = millis();
+    }
+    }else { Serial.print(" No finger?");  }
+}
+void temp(){
+ o = mlx.readObjectTempC();
+  A = mlx.readAmbientTempC();
+  Serial.print("Ambient = "); Serial.print(A);
+  Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
+  Serial.println();
+  }
+
+ void thingspeak(){ 
     if (client.connect("api.thingspeak.com",80)) {
       request_string = thingSpeakAddress;
       request_string += "key=";
       request_string += api_key;
       request_string += "&field1=";
-      request_string += beatAvg;
+      request_string += heartRate;
       request_string += "&field2=";
-      request_string += ESpO2;
+      request_string += SPO2;
       request_string += "&field3=";
       request_string += o;
       
@@ -180,25 +149,4 @@ void temp(){
 
     }    
     }
-    
-  void setup() {
-  Serial.begin(115200);
-  checkmlx();
-  checkmax();
-  particleSensor.begin();
-  mlx.begin();
-  init_wifi();
  
-  
-}
-
-void loop() {
-  long test = particleSensor.getIR();
-  if(test > 50000){
-SPO2();
-HeartRate(test);
-temp();
- thingspeak();
-
-  }else { Serial.print(" No finger?");}
-}
