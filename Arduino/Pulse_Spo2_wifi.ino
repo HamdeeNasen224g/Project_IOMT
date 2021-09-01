@@ -1,334 +1,214 @@
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-#include <SoftwareSerial.h>
-#include "MAX30100_PulseOximeter.h"
-#define RX 2
-#define TX 3
-#define REPORTING_PERIOD_MS 1000
+#include <Adafruit_MLX90614.h>
+#include "MAX30105.h"
+#include "heartRate.h"
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
-String AP = "Free-wifi2.4G";       // AP NAME
-String PASS = ""; // AP PASSWORD
-String API = "EY4O6UXAM0DI1HEA";   // Write API KEY
-String HOST = "api.thingspeak.com";
-String PORT = "80";
-int countTrueCommand;
-int countTimeCommand; 
-boolean found = false; 
-int valSensor = 1;
+#define USEFIFO
+MAX30105 particleSensor;
+WiFiClient client;
+#include <Ticker.h>
 
-SoftwareSerial esp8266(RX,TX); 
-LiquidCrystal_I2C lcd(0x27, 16, 2); 
-PulseOximeter pox;
+Ticker blinker;
 
-uint32_t tsLastReport = 0;
+String thingSpeakAddress= "http://api.thingspeak.com/update?";
+String writeAPIKey;
+String tsfield1Name;
+String request_string;
+String api_key = "EY4O6UXAM0DI1HEA";
+HTTPClient http;
 
-int sensor_pin = 0;                
 
-int led_pin = 13;          
+const byte RATE_SIZE = 4; //Increase this for more averaging. 4 is good.
+byte rates[RATE_SIZE]; //Array of heart rates
+byte rateSpot = 0;
+long lastBeat = 0; //Time at which the last beat occurred
+float beatsPerMinute;
+int beatAvg;
+int i = 0;
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
-volatile int heart_rate;          
-
-volatile int analog_data;              
-
-volatile int time_between_beats = 600;            
-
-volatile boolean pulse_signal = false;    
-
-volatile int beat[10];         //heartbeat values will be sotred in this array    
-
-volatile int peak_value = 512;          
-
-volatile int trough_value = 512;        
-
-volatile int thresh = 525;              
-
-volatile int amplitude = 100;                 
-
-volatile boolean first_heartpulse = true;      
-
-volatile boolean second_heartpulse = false;    
-
-volatile unsigned long samplecounter = 0;   //This counter will tell us the pulse timing
-
-volatile unsigned long lastBeatTime = 0;
-
-void onBeatDetected()
-{
-    Serial.println("Beat!");
-}
- 
-void setup()
-{  
-  Serial.begin(9600);  
-  esp8266.begin(115200);
-  sendCommand("AT",5,"OK");
-  sendCommand("AT+CWMODE=1",5,"OK");
-    sendCommand("AT+CWJAP=\""+ AP +"\",",20,"OK");
-  
-   pinMode(led_pin,OUTPUT);      
-   interruptSetup(); 
-   
-   lcd.backlight();
-   Serial.print("Initializing pulse oximeter..");  
-    lcd.begin(16,2);  
-    lcd.print("Initializing...");
-    delay(3600);
-    lcd.clear();
-   
-    // Initialize the PulseOximeter instance
-    // Failures are generally due to an improper I2C wiring, missing power supply
-    // or wrong target chip
-    if (!pox.begin()) {
-        Serial.println("FAILED");
-        for(;;);
-    } else {
-        Serial.println("SUCCESS");
-    }
-     pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
-
-} 
-void loop()
-{    
-  String getData = "GET /update?api_key="+ API +"&field1="+pox.getHeartRate()+"&field2="+pox.getSpO2();
-  sendCommand("AT+CIPMUX=1",5,"OK");
-  sendCommand("AT+CIPSTART=0,\"TCP\",\""+ HOST +"\","+ PORT,15,"OK");
-  sendCommand("AT+CIPSEND=0," +String(getData.length()+4),4,">");
-  esp8266.println(getData);delay(1500);countTrueCommand++;
-  sendCommand("AT+CIPCLOSE=0",5,"OK");
- 
-}
-String getPulseoxiValue(){
-// Register a callback for the beat detection
-    pox.setOnBeatDetectedCallback(onBeatDetected);
-   
-    // Make sure to call update as fast as possible
-    pox.update();
-    if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
-        Serial.print("Heart rate:");
-        Serial.print(pox.getHeartRate());
-        Serial.print("bpm / SpO2:");
-        Serial.print(pox.getSpO2());
-        Serial.println("%");
-
-        lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("BPM : ");
-        lcd.print(pox.getHeartRate());
-
-        lcd.setCursor(0,1);
-        lcd.print("SpO2 : ");
-        lcd.print(pox.getSpO2());
-        lcd.print("%");
-
-        tsLastReport = millis();
-            
-    }
-}
-void sendCommand(String command, int maxTime, char readReplay[]) {
-  Serial.print(countTrueCommand);
-  Serial.print(". at command => ");
-  Serial.print(command);
-  Serial.print(" ");
-  while(countTimeCommand < (maxTime*1))
+double ESpO2 = 95.0;//initial value of estimated SpO2
+double FSpO2 = 0.7; //filter factor for estimated SpO2
+double frate = 0.95; //low pass filter for IR/red LED value to eliminate AC component
+#define TIMETOBOOT 3000 // wait for this time(msec) to output SpO2
+#define SCALE 88.0 //adjust to display heart beat and SpO2 in the same scale
+#define SAMPLING 5 //if you want to see heart beat more precisely , set SAMPLING to 1
+#define FINGER_ON 30000 // if red signal is lower than this , it indicates your finger is not on the sensor
+#define MINIMUM_SPO2 80.0
+int Num = 100;//calculate SpO2 by this sampling interval
+double avered = 0; 
+double aveir = 0;
+double sumirrms = 0;
+double sumredrms = 0;
+void HeartRate()
   {
-    esp8266.println(command);//at+cipsend
-    if(esp8266.find(readReplay))//ok
+  long irValue = particleSensor.getIR();
+
+  if (checkForBeat(irValue) == true)
+  {
+    //We sensed a beat!
+    long delta = millis() - lastBeat;
+    lastBeat = millis();
+
+    beatsPerMinute = 60 / (delta / 1000.0);
+
+    if (beatsPerMinute < 255 && beatsPerMinute > 20)
     {
-      found = true;
-      break;
+      rates[rateSpot++] = (byte)beatsPerMinute; //Store this reading in the array
+      rateSpot %= RATE_SIZE; //Wrap variable
+
+      //Take average of readings
+      beatAvg = 0;
+      for (byte x = 0 ; x < RATE_SIZE ; x++)
+        beatAvg += rates[x];
+      beatAvg /= RATE_SIZE;
     }
-  
-    countTimeCommand++;
+  }
+
+  Serial.print("IR=");
+  Serial.print(irValue);
+  Serial.print(", BPM=");
+  Serial.print(beatsPerMinute);
+  Serial.print(", Avg BPM=");
+  Serial.print(beatAvg);
+
+  Serial.println();
   }
   
-  if(found == true)
-  {
-    Serial.println("OYI");
-    countTrueCommand++;
-    countTimeCommand = 0;
-  }
+void SPO2(){
   
-  if(found == false)
-  {
-    Serial.println("Fail");
-    countTrueCommand = 0;
-    countTimeCommand = 0;
-  }
-  
-  found = false;
- }
- 
-void interruptSetup()
-
-{    
-
-  TCCR2A = 0x02;  // This will disable the PWM on pin 3 and 11
-
-  OCR2A = 0X7C;   // This will set the top of count to 124 for the 500Hz sample rate
-
-  TCCR2B = 0x06;  // DON'T FORCE COMPARE, 256 PRESCALER
-
-  TIMSK2 = 0x02;  // This will enable interrupt on match between OCR2A and Timer
-
-  sei();          // This will make sure that the global interrupts are enable
-
-}
-
-ISR(TIMER2_COMPA_vect)
-
-{ 
-
-  cli();                                     
-
-  analog_data = analogRead(sensor_pin);            
-
-  samplecounter += 2;                        
-
-  int N = samplecounter - lastBeatTime;      
-
-
-  if(analog_data < thresh && N > (time_between_beats/5)*3)
-
-    {     
-
-      if (analog_data < trough_value)
-
-      {                       
-
-        trough_value = analog_data;
+   uint32_t ir, red , green;
+  red = particleSensor.getFIFORed(); //Sparkfun's MAX30105
+    ir = particleSensor.getFIFOIR();  //Sparkfun's MAX30105
+   
+  double fred, fir;
+  double SpO2 = 0; //raw SpO2 before low pass filtered
+   
+    i++;
+    fred = (double)red;
+    fir = (double)ir;
+    avered = avered * frate + (double)red * (1.0 - frate);//average red level by low pass filter
+    aveir = aveir * frate + (double)ir * (1.0 - frate); //average IR level by low pass filter
+    sumredrms += (fred - avered) * (fred - avered); //square sum of alternate component of red level
+    sumirrms += (fir - aveir) * (fir - aveir);//square sum of alternate component of IR level
+    if ((i % SAMPLING) == 0) {//slow down graph plotting speed for arduino Serial plotter by thin out
+      if ( millis() > TIMETOBOOT) {
+        float ir_forGraph = (2.0 * fir - aveir) / aveir * SCALE;
+        float red_forGraph = (2.0 * fred - avered) / avered * SCALE;
+        //trancation for Serial plotter's autoscaling
+        if ( ir_forGraph > 100.0) ir_forGraph = 100.0;
+        if ( ir_forGraph < 80.0) ir_forGraph = 80.0;
+        if ( red_forGraph > 100.0 ) red_forGraph = 100.0;
+        if ( red_forGraph < 80.0 ) red_forGraph = 80.0;
+        //        Serial.print(red); Serial.print(","); Serial.print(ir);Serial.print(".");
+        if (ir < FINGER_ON) ESpO2 = MINIMUM_SPO2; //indicator for finger detached
+        float temperature = particleSensor.readTemperatureF();
+        
+        Serial.print(" Oxygen % = ");
+        Serial.println(ESpO2);
+   
 
       }
 
+  }
     }
+float o;
+float A;
 
+void checkmlx(){
 
-  if(analog_data > thresh && analog_data > peak_value)
+  while (!Serial);
 
-    {        
+  Serial.println("Adafruit MLX90614 test");
 
-      peak_value = analog_data;
+  if (!mlx.begin()) {
+    Serial.println("Error connecting to MLX sensor. Check wiring.");
+    while (1);
+  };
 
-    }                          
+  Serial.print("Emissivity = "); Serial.println(mlx.readEmissivity());
+  Serial.println("================================================");
+  }
+  
+void checkmax(){
+  Serial.println("Initializing...");
 
+  // Initialize sensor
+  if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) //Use default I2C port, 400kHz speed
+  {
+    Serial.println("MAX30105 was not found. Please check wiring/power. ");
+    while (1);
+  }
+  Serial.println("Place your index finger on the sensor with steady pressure.");
 
-
-   if (N > 250)
-
-  {                            
-
-    if ( (analog_data > thresh) && (pulse_signal == false) && (N > (time_between_beats/5)*3) )
-
-      {       
-
-        pulse_signal = true;          
-
-        digitalWrite(led_pin,HIGH);
-
-        time_between_beats = samplecounter - lastBeatTime;
-
-        lastBeatTime = samplecounter;     
-
-
-
-       if(second_heartpulse)
-
-        {                        
-
-          second_heartpulse = false;   
-
-          for(int i=0; i<=9; i++)    
-
-          {            
-
-            beat[i] = time_between_beats; //Filling the array with the heart beat values                    
-
-          }
-
-        }
-
-
-        if(first_heartpulse)
-
-        {                        
-
-          first_heartpulse = false;
-
-          second_heartpulse = true;
-
-          sei();            
-
-          return;           
-
-        }  
-
-
-      word runningTotal = 0;  
-
-
-      for(int i=0; i<=8; i++)
-
-        {               
-
-          beat[i] = beat[i+1];
-
-          runningTotal += beat[i];
-
-        }
-
-
-      beat[9] = time_between_beats;             
-
-      runningTotal += beat[9];   
-
-      runningTotal /= 10;        
-
-      heart_rate = 60000/runningTotal;
-
-    }                      
-
+  particleSensor.setup(); //Configure sensor with default settings
+  particleSensor.setPulseAmplitudeRed(0x0A); //Turn Red LED to low to indicate sensor is running
+  particleSensor.setPulseAmplitudeGreen(0); //Turn off Green LED
   }
 
+void temp(){
+  o = mlx.readObjectTempC();
+  A = mlx.readAmbientTempC();
+  Serial.print("Ambient = "); Serial.print(A);
+  Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
+  Serial.println();
+  }
 
-
-
-  if (analog_data < thresh && pulse_signal == true)
-
-    {  
-
-      digitalWrite(led_pin,LOW); 
-
-      pulse_signal = false;             
-
-      amplitude = peak_value - trough_value;
-
-      thresh = amplitude/2 + trough_value; 
-
-      peak_value = thresh;           
-
-      trough_value = thresh;
-
-    }
-
-
-  if (N > 2500)
-
-    {                          
-
-      thresh = 512;                     
-
-      peak_value = 512;                 
-
-      trough_value = 512;               
-
-      lastBeatTime = samplecounter;     
-
-      first_heartpulse = true;                 
-
-      second_heartpulse = false;               
+  void init_wifi() {
+   WiFi.begin("Ruskee_2.4G","Ruskee39924");
+  do {
+    Serial.print(".");
+    delay(500);
+  } while ((!(WiFi.status() == WL_CONNECTED)));Serial.println("WiFi Connected");
+  Serial.print("IP address: ");
+  Serial.println((WiFi.localIP().toString()));
+}
+  void thingspeak(){ 
+    if (client.connect("api.thingspeak.com",80)) {
+      request_string = thingSpeakAddress;
+      request_string += "key=";
+      request_string += api_key;
+      request_string += "&field1=";
+      request_string += beatAvg;
+      request_string += "&field2=";
+      request_string += ESpO2;
+      request_string += "&field3=";
+      request_string += o;
+      
+      http.begin(client,request_string);
+      http.GET();
+      http.end();
+      request_string="";
 
     }
+    delay(15000);
 
+    }
+    
+void changeState()
+{
+  thingspeak();  //Invert Current State of LED  
+}
+  void setup() {
+  Serial.begin(115200);
+  checkmlx();
+  checkmax();
+  particleSensor.begin();
+  mlx.begin();
+  init_wifi();
+ blinker.attach(0.5, changeState);
+  
+}
 
-  sei();                                
+void loop() {
+  long test = particleSensor.getIR();
+  if(test > 50000){
+SPO2();
+HeartRate();
+temp();
+ 
 
+  }else { Serial.print(" No finger?");}
 }
