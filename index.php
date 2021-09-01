@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center"><i class=""></i><span id="statusbpm">Safe</span></h3>
+                        <h3 class="card-title text-center"><i class="text-danger"><span id="statusbpm">Safe</span></i></h3>
                       </div>
                     </div>
                   </div>
