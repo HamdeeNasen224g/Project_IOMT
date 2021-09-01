@@ -167,8 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center"><span class="text-danger" id="statusbpm"></span>
-                        <span class="text-danger" id="statusbpm1"></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statusbpm"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -489,7 +488,7 @@ $(
          if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
           $("#statusbpm").text("Danger");
           else
-          $("#statusbpm1").text("Safe");
+          $("#statusbpm").text("Safe");
          }
          if(feeds[feeds.length-1].field2 <80 ){
           $("#statusspo2").text("Danger");
