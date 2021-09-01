@@ -178,7 +178,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4 ">
+                  <div class="col-sm-6">
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category">Status Temp</h5>
