@@ -213,6 +213,7 @@
                 <div class="chart-area">
                 <table class="table">
     <thead>
+      <h4> History of Data Danger</h4>
       <tr>
         <th>Time Stamp</th>
         <th>BPM</th>
