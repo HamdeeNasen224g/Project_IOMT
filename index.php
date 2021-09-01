@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statusbpm"></span></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statusbpm"></span><span class="text-danger" id="#statusbpm1"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statusspo2"></span></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statusspo2"></span><span class="text-danger" id="statusspo21"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -183,7 +183,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-primary">Status Temper</h5>
-                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statustemp"></span></h3>
+                        <h3 class="card-title text-center text-white"><span class="text-danger" id="statustemp"></span><span class="text-danger" id="statustemp1"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -488,17 +488,17 @@ $(
          if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
           $("#statusbpm").text("Danger");
          }else{
-          $("#statusbpm").text("Safe");
+          $("#statusbpm1").text("Safe");
          }
          if(feeds[feeds.length-1].field2 <80 ){
           $("#statusspo2").text("Danger");
          }else{
-          $("#statusspo2").text("Safe");
+          $("#statusspo21").text("Safe");
          }
          if(feeds[feeds.length-1].field3 > 37.5 || feeds[feeds.length-1].field3 < 34.5){
           $("#statustemp").text("Danger");
          }else{
-          $("#statustemp").text("Safe");
+          $("#statustemp1").text("Safe");
          }
          
          for (let i=0; i < feeds.length; i++)  {
