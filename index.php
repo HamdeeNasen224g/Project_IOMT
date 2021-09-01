@@ -210,11 +210,11 @@
                 </div>
               </div>
               <div class="card-body">
-              
+              <div class="chart-area" style="overflow-x:auto;">
+          <table class="table">  
     <thead>
       <h4> History of Data Danger</h4>
-      <div class="chart-area" style="overflow-x:auto;">
-        <table class="table">
+      
           <tr>
             <th>Time Stamp</th>
             <th>BPM</th>
