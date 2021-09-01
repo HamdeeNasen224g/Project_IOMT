@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center"><i class=""></i>Safe</h3>
+                        <h3 class="card-title text-center"><i class=""></i><span id="statusbpm">Safe</span></h3>
                       </div>
                     </div>
                   </div>
@@ -175,15 +175,15 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center"><i class=""></i> Safe</h3>
+                        <h3 class="card-title text-center"><i class=""></i><span id="statusspo2">Safe</span></h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="card card-chart">
                       <div class="card-header">
-                        <h5 class="card-category text-primary">Status Temp</h5>
-                        <h3 class="card-title text-center"><i class=""></i> Safe</h3>
+                        <h5 class="card-category text-primary">Status Temperature</h5>
+                        <h3 class="card-title text-center"><i class=""></i><span id="statustemp">Safe</span></h3>
                       </div>
                     </div>
                   </div>
@@ -485,6 +485,9 @@ $(
              $("#bpm").text(feeds[feeds.length-1].field1+" BPM");
              $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
+         if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
+          $("#statusbpm").text("<a class ="+"text-danger"+">Danger");
+         }
          
          for (let i=0; i < feeds.length; i++)  {
            xlabel[i] = feeds[i].created_at;
