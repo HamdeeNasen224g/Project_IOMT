@@ -155,12 +155,12 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="card card-chart">
-              <div class="card-header ">
+              <div class="card-header">
                 <div class="row">
                   <div class="col-sm-6 text-left">
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
-                    <div class="row">
+                    <div class="row" align="center">
                     <div class="col-sm-4">
                     <div class="card card-chart">
                       <div class="card-header">
