@@ -153,11 +153,11 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-sm-10">
+          <div class="col-sm-12">
             <div class="card card-chart">
               <div class="card-header">
                 <div class="row">
-                  <div class="col-sm-6 text-left">
+                  <div class="col-sm-4 text-left">
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
                     <div class="row">
