@@ -486,7 +486,7 @@ $(
              $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
-          $("#statusbpm").text("<a class ="+"text-danger"+">Danger");
+          $("#statusbpm").text("<a class ="+"text-danger"+">Danger</a>");
          }
          
          for (let i=0; i < feeds.length; i++)  {
