@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center text-danger"><span id="statusbpm">Safe</span></h3>
+                        <h3 class="card-title text-center "><i class="text-danger"><span id="statusbpm"></i>Safe</span></h3>
                       </div>
                     </div>
                   </div>
@@ -175,14 +175,14 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center text-danger"><i class=""></i><span id="statusspo2">Safe</span></h3>
+                        <h3 class="card-title text-center text-danger"><i class="text-danger"><span id="statusspo2"></i>Safe</span></h3>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="card card-chart">
                       <div class="card-header">
-                        <h5 class="card-category text-primary">Status Temperature</h5>
+                        <h5 class="card-category text-primary">Status Temper</h5>
                         <h3 class="card-title text-center"><i class=""></i><span id="statustemp">Safe</span></h3>
                       </div>
                     </div>
