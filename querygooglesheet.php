@@ -1,15 +1,10 @@
 <?php
-$time = $_POST["ID"];
+if($_POST["ID"] == null){
+  $time = "Required......";
+}else{
+  $time = $_POST["ID"];
     
-    echo $time;
-  console.log($time);
+  echo $time;
+console.log($time);
+}
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top">
-  </head>
-  <body>
-    <?php  echo $time; ?>
-  </body>
-</html>
