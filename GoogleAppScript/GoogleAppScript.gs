@@ -30,6 +30,7 @@ function myFunction() {
    activeSheet=ss.getActiveSheet();
    activeSheet.appendRow([timestamp,feed_id, id,bpm,spo2,temp]);
    sendLineNotify(timestamp,bpm,spo2,temp);
+   alert(bpm,spo2);
     }
   }
 
@@ -78,11 +79,19 @@ function sendLineNotify(data1,data2,data3,data4) {
         "message": "\nHello นายท่าน"+'\n'+'ข้อมูลวันที่ : '+ time   + '\n' +
                         'ค่าชีพจร : '+ data2   + ' BPM\n' +
                         'ค่าระดับออกซิเจนในเลือด Spo2 : '     + data3 + '%\n' +
-                        'อุณหภูมิ : '   + data4+ " ํCํ\n",
+                        'อุณหภูมิ : '   + data4+ " ํC\n",
         "stickerPackageId": "1",
         "stickerId": "14"
       };
-  
+  var messages = {
+        "message": "\nHello นายท่าน"+'\n'+'ข้อมูลวันที่ : '+ time   + '\n' +
+                        'ค่าชีพจร : '+ data2   + ' BPM\n' +
+                        'ค่าระดับออกซิเจนในเลือด Spo2 : '     + data3 + '%\n' +
+                        'อุณหภูมิ : '   + data4+ " ํC\n",
+        "stickerPackageId": "1",
+        "stickerId": "14"
+      };
+
   var url = "https://notify-api.line.me/api/notify";
   var token = "cvamHIAsCMlPKswDH8DdMHzYO9Dp4H2vJDe43NC8I7D";
   var options = {
@@ -95,3 +104,50 @@ function sendLineNotify(data1,data2,data3,data4) {
   
   UrlFetchApp.fetch(url, options);
 }
+
+
+function alert(data2,data3) {
+  if((data2 > 100 || data2 < 60)||data3 < 80 ){
+  var messages = {
+        "message": "\nนายท่าน แจ้งเตือนฉุกเฉิน \udbc0\udc9b"+'\n'+'โปรดตรวจสอบญาติของท่าน\n' +
+                        '\udbc0\udca4 ค่าชีพจรหรือค่าระดับออกซิเจนในเลือดของนายท่านอยู่ในเกณฑ์ผิดปกติ \udbc0\udca4 \n' +
+                        '\udbc0\udc1c หากสภาพนายท่านดูไม่ดี \udbc0\udc13 \n' +
+                        'โปรดติดต่อ แจ้งสายด่วน 1330 แล้วกด 14'+ " \n \udbc0\udc4e",
+        "stickerPackageId": "1",
+        "stickerId": "16"
+      };
+  
+  var url = "https://notify-api.line.me/api/notify";
+  var token = "cvamHIAsCMlPKswDH8DdMHzYO9Dp4H2vJDe43NC8I7D";
+  var options = {
+      "method": "post",
+      "payload": messages,
+      "headers": {
+        "Authorization": "Bearer " + token
+       }
+  };
+
+  UrlFetchApp.fetch(url, options);
+  sendImgLineNotify();
+  }
+}
+
+function sendImgLineNotify(){
+var token = "cvamHIAsCMlPKswDH8DdMHzYO9Dp4H2vJDe43NC8I7D";
+var message = "โปรดปฏิบัติตามภาพด้านล่าง!";
+var imgThumbnail = "https://www.kkh.go.th/wp-content/uploads/2020/04/90133470_2983699621669743_2146197842165760000_n.jpg"; // Maximum size of 240×240px JPEG
+var imgFullsize = "https://www.kkh.go.th/wp-content/uploads/2020/04/90133470_2983699621669743_2146197842165760000_n.jpg"; //Maximum size of 1024×1024px JPEG
+var formData = {
+'message' : message,
+'imageThumbnail': imgThumbnail,
+'imageFullsize' : imgFullsize,
+}
+
+var options = {
+"method" : "post",
+"payload" : formData,
+"headers" : {"Authorization" : "Bearer " + token}
+};
+UrlFetchApp.fetch("https://notify-api.line.me/api/notify", options);
+}
+
