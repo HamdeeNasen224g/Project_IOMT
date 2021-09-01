@@ -153,7 +153,7 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <div class="card card-chart">
               <div class="card-header">
                 <div class="row">
