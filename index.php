@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>
-    Dashboard Walailak University Hospital
+    Dashboard WUH
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -161,7 +161,23 @@
                     <h5 class="card-category">Status</h5>
                     <br><h2 class="card-title">Notification Center</h2></br>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 ">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">Status BPM</h5>
+                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 ">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">Status SPO2</h5>
+                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 ">
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category">Status Temp</h5>
@@ -169,7 +185,6 @@
                       </div>
                     </div>
                   </div>
-
                   </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
