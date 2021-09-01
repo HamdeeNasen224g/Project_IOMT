@@ -175,7 +175,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center"><i class=""></i><span id="statusspo2">Safe</span></h3>
+                        <h3 class="card-title text-center text-danger"><i class=""></i><span id="statusspo2">Safe</span></h3>
                       </div>
                     </div>
                   </div>
