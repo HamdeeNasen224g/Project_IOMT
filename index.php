@@ -157,7 +157,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <div class="row">
-                  <div class="col-sm-4 text-left">
+                  <div class="col-sm-6 text-left">
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
                     <div class="row">
@@ -166,7 +166,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-primary">Status BPM</h5>
-                        <h3 class="card-title"><i class=""></i>SAfe</h3>
+                        <h3 class="card-title text-center"><i class=""></i>SAfe</h3>
                       </div>
                     </div>
                   </div>
