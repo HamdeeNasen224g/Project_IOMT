@@ -183,6 +183,7 @@
                   <div class="col-sm-6">
                     <div class="card card-chart">
                       <div class="card-header">
+                        <div class="col 6"></div>
                         <h5 class="card-category">Status Temp</h5>
                         <h3 class="card-title"><i class=""></i> Safe</h3>
                       </div>
