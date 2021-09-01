@@ -214,27 +214,19 @@
                 <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Time Stamp</th>
+        <th>BPM</th>
+        <th>SPO2</th>
+        <th>Temperature</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+        <td> <?php echo $alertdata[0][0];?></td>
+        <td><?php echo $alertdata[0][1];?></td>
+        <td><?php echo $alertdata[0][2];?></td>
+        <td><?php echo $alertdata[0][3];?></td>
+      </tr>      
     </tbody>
   </table>
                 </div>
