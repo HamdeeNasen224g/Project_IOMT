@@ -161,9 +161,6 @@
                     <h5 class="card-category">Status</h5>
                     <br><h2 class="card-title">Notification Center</h2></br>
 
-              <div class="col-lg-4">
-                <div class="card card-chart">
-                  <div class="card-header">
                     <div class="col-lg-4 ">
                     <div class="card card-chart">
                       <div class="card-header">
