@@ -211,7 +211,7 @@
               </div>
               <div class="card-body">
                 <div class="chart-area">
-                <table class="table">
+                <table class="table" style="overflow-x:auto;">
     <thead>
       <h4> History of Data Danger</h4>
       
