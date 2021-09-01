@@ -210,31 +210,31 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area" style="overflow-x:auto;">
-                <table class="table">
+              
     <thead>
       <h4> History of Data Danger</h4>
-      
-      <tr>
-        <th>Time Stamp</th>
-        <th>BPM</th>
-        <th>SPO2</th>
-        <th>Temperature</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php 
-      for($i=0; $i<count($alertdata);$i++){
+      <div class="chart-area" style="overflow-x:auto;">
+        <table class="table">
+          <tr>
+            <th>Time Stamp</th>
+            <th>BPM</th>
+            <th>SPO2</th>
+            <th>Temperature</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+          for($i=0; $i<count($alertdata);$i++){
 
-      ?> 
-      <tr>
-        <td> <?php echo $alertdata[$i][0];?></td>
-        <td><?php echo $alertdata[$i][1];?></td>
-        <td><?php echo $alertdata[$i][2];?></td>
-        <td><?php echo $alertdata[$i][3];?></td>
-      </tr>
+          ?> 
+          <tr>
+            <td> <?php echo $alertdata[$i][0];?></td>
+            <td><?php echo $alertdata[$i][1];?></td>
+            <td><?php echo $alertdata[$i][2];?></td>
+            <td><?php echo $alertdata[$i][3];?></td>
+          </tr>
 
-    <?php }?>  
+        <?php }?>  
     </tbody>
   </table>
                 </div>
