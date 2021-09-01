@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>
-    Dashboard Walailak University Hospital
+    Dashboard WUH
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -159,14 +159,42 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Status</h5>
-                    <h2 class="card-title">Notification Center</h2>
+                    <h4 class="card-category">Status Patient</h4>
+                    <br><h2 class="card-title">Notification Center</h2></br>
+                    <div class="row">
+                    <div class="col-sm-6">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                      <div class="col 6"></div>
+                        <h5 class="card-category">Status BPM</h5>
+                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                      </div>
+                    </div>
                   </div>
+                  <div class="col-sm-6">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                      <div class="col 6"></div>
+                        <h5 class="card-category">Status SPO2</h5>
+                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">Status Temp</h5>
+                        <h3 class="card-title"><i class=""></i> Safe</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
                         <input type="radio" name="options" checked>
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN :<?php echo $hid;?></span>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" >HN <?php echo $hid;?></span>
                         <span class="d-block d-sm-none">
                           <i class="tim-icons icon-single-02"></i>
                         </a>
@@ -196,9 +224,8 @@
               <div class="card-header">
                 <div class="col 6"></div>
                 <h5 class="card-category">Total BPM</h5>
-                <h3 class="card-title"><i class="tim-icons icon-heart-2 text-success"></i> BPM : <span id ="bpm">/</span></h3>
+                <h3 class="card-title"><i class="tim-icons icon-heart-2 text-success"></i> BPM : <span id ="bpm"></span></h3>
               </div>
-              
               <div class="card-body">
               <div class="chart-area">
                   <canvas id="myChart1"></canvas>
@@ -222,7 +249,7 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Total TEMPERATURE</h5>
+                <h5 class="card-category">Total Temperature</h5>
                 <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMP : <span id ="temp"></h3>
               </div>
               <div class="card-body">
