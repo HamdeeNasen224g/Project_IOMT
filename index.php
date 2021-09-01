@@ -179,7 +179,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="card card-chart">
                       <div class="card-header">
                         <div class="col 6"></div>
