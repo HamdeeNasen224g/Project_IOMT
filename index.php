@@ -195,7 +195,7 @@
               <div class="card-header">
                 <div class="col 6"></div>
                 <h5 class="card-category">Total BPM</h5>
-                <h3 class="card-title"><i class="tim-icons icon-heart-2 text-success"></i> BPM : <span id ="bpm">/</span></h3>
+                <h3 class="card-title"><i class="tim-icons icon-heart-2 text-success"></i> BPM : <span id ="bpm"></span></h3>
               </div>
               
               <div class="card-body">
