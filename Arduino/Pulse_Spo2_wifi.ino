@@ -143,7 +143,7 @@ void loop()
   Serial.print(heartRateValid, DEC);
   Serial.print(F("; SPO2="));
   Serial.print(SPO2, DEC);
-  lcd.print(F("SPO2="));
+  lcd.print(F(" SPO2="));
   lcd.print(SPO2, DEC);
   Serial.print(F(", SPO2Valid="));
   Serial.println(SPO2Valid, DEC);
@@ -160,7 +160,7 @@ void temp(){
   Serial.print("Ambient = "); Serial.print(A);
   Serial.print("*C\tObject = "); Serial.print(o); Serial.println("*C");
   lcd.setCursor(0, 1);
-  lcd.print("Temp= "); lcd.print(o); lcd.println("*C");
+  lcd.print("Temp= "); lcd.print(o); lcd.println(" C");
   Serial.println();
   delay(1400);
   }
