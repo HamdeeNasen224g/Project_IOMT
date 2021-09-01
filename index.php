@@ -161,11 +161,11 @@
                     <h5 class="card-category">Status</h5>
                     <h2 class="card-title">Notification Center</h2>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category">Total TEMPERATURE</h5>
-                        <h3 class="card-title"><i class="tim-icons icon-chart-pie-36 text-primary"></i> TEMP :</h3>
+                        <h3 class="card-title"><i class=""></i> TEMP :</h3>
                       </div>
                     </div>
                   </div>
