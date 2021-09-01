@@ -161,7 +161,7 @@
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
                     <div class="row">
-                    <div class="col-sm-3 col-md-6 col-lg-4 ">
+                    <div class="col-sm-4 col-md-6 col-lg-4 ">
                     <div class="card card-chart">
                       <div class="card-header">
                       <div class="col 6"></div>
@@ -170,7 +170,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-3 col-md-6 col-lg-4">
+                  <div class="col-sm-4 col-md-6 col-lg-4">
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category">Status SPO2</h5>
