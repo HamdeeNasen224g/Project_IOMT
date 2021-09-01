@@ -160,7 +160,7 @@
                   <div class="col-sm-6 text-left">
                     <h4 class="card-category">Status Patient</h4>
                     <br><h2 class="card-title">Notification Center</h2></br>
-                   <div class="row">
+                 
                     <div class="col-sm-6">
                     <div class="card card-chart">
                       <div class="card-header">
@@ -187,7 +187,7 @@
                     </div>
                   </div>
                 </div>
-                </div>
+            
                   <div class="col-sm-6 text-left">
                     <div class="btn-group btn-group-toggle float-right" >
                       <label class="btn btn-sm btn-primary btn-simple active">
