@@ -116,24 +116,36 @@ int i = 0;
 int x = 0;
 const byte RATE_SIZE = 4; //Increase this for more averaging. 4 is good.
 byte ratesheart[RATE_SIZE]; //Array of heart rates
-byte ratesspo2[RATE_SIZE]; //Array of heart rates
+byte ratesspo2[RATE_SIZE]; //Array of spo2 rates
+byte ratestemp[RATE_SIZE]; //Array of temp rates
 void loop()
 {
   Serial.println(F("Wait about four seconds"));
   particleSensor.heartrateAndOxygenSaturation(/**SPO2=*/&SPO2, /**SPO2Valid=*/&SPO2Valid, /**heartRate=*/&heartRate, /**heartRateValid=*/&heartRateValid);
   if(heartRate > 20 and SPO2 > 20){
+     temp();
   //Print result 
       if(i < 3){
         ratesheart[i] = heartRate;
+         ratesspo2[i] = SPO2;
+         ratestemp[i] = o;
         i++; }else{ 
-        ratesheart[i-1]= ratesheart[i];       
+        ratesheart[i-1]= ratesheart[i]; 
+        ratesspo2[i-1]= ratesspo2[i];
+        ratestemp[i-1]=ratestemp[i];     
         i++;      
         if(i>3){ i = 0 ;}
         }
         heartRate = (ratesheart[0]+ratesheart[1]+ratesheart[2]+ratesheart[3])/4;
         ratesheart[i] = heartRate; 
+        SPO2 = (ratesspo2[0]+ratesspo2[1]+ratesspo2[2]+ratesspo2[3])/4;
+        ratesspo2[i] = SPO2;
+        o = (ratestemp[0]+ratestemp[1]+ratestemp[2]+ratestemp[3])/4;
+        ratestemp[i]= o;
+        
         if(SPO2>100){SPO2 = 100; } 
-        if (heartRate > 180){ heartRate = 180;}     
+        if (heartRate > 180){ heartRate = 180;} 
+        if(o > 50){o = 50;}    
   Serial.print(F("heartRate="));
   Serial.print(heartRate, DEC);
   lcd.setCursor(0, 0);
@@ -147,7 +159,7 @@ void loop()
   lcd.print(SPO2, DEC);
   Serial.print(F(", SPO2Valid="));
   Serial.println(SPO2Valid, DEC);
-  temp();
+  
     if(millis() - prev >= 15000){
     thingspeak();
     prev = millis();
