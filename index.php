@@ -482,7 +482,7 @@ $(
             console.log(data);
              $("#spo2").text(feeds[feeds.length-1].field2+" %");
              $("#bpm").text(feeds[feeds.length-1].field1+" BPM");
-             $("#tempF").text(feeds[feeds.length-1].field3+" ํ C");
+             $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
          if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
           $("#statusbpm").text("Danger");
