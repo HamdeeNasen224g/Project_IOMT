@@ -489,7 +489,7 @@ $(
          }else{
           $("#statusbpm1").text("Safe");
          }
-         if(feeds[feeds.length-1].field2 < 70 || feeds[feeds.length-1].field1 > 90)){
+         if(feeds[feeds.length-1].field2 > 90 || feeds[feeds.length-1].field1 < 70){
           $("#statusspo2").text("Danger");
          }else{
           $("#statusspo21").text("Safe");
