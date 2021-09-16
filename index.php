@@ -167,7 +167,7 @@
                       <div class="card-header">
                       <div class="col 6"></div>
                         <h5 class="card-category text-success">Status BPM</h5>
-                        <h3 class="card-title text-center"><span class="text-danger" id="statusbpm"></span><span class="text-white" id="statusbpm1"></span></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statusbpm1"></span><span class="text-white" id="statusbpm"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-info">Status SPO2</h5>
-                        <h3 class="card-title text-center"><span class="text-danger" id="statusspo2"></span><span class="text-white" id="statusspo21"></span></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statusspo21"></span><span class="text-white" id="statusspo2"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -183,7 +183,7 @@
                     <div class="card card-chart">
                       <div class="card-header">
                         <h5 class="card-category text-primary">Status Temper</h5>
-                        <h3 class="card-title text-center"><span class="text-danger" id="statustemp"></span><span class="text-white" id="statustemp1"></span></h3>
+                        <h3 class="card-title text-center"><span class="text-danger" id="statustemp1"></span><span class="text-white" id="statustemp"></span></h3>
                       </div>
                     </div>
                   </div>
@@ -484,7 +484,7 @@ $(
              $("#bpm").text(feeds[feeds.length-1].field1+" BPM");
              $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
-         if(feeds[feeds.length-1].field1 > 60 || feeds[feeds.length-1].field1 < 90){
+         if(feeds[feeds.length-1].field1 > 60 && feeds[feeds.length-1].field1 < 90){
           $("#statusbpm").text("Safe");
          }else{
           $("#statusbpm1").text("Danger");
@@ -494,10 +494,10 @@ $(
          }else{
           $("#statusspo21").text("Danger");
          }
-         if(feeds[feeds.length-1].field3 > 35.4 || feeds[feeds.length-1].field3 < 37.4){
+         if(feeds[feeds.length-1].field3 > 35.4 && feeds[feeds.length-1].field3 < 37.4){
           $("#statustemp").text("Safe");
          }else{
-          $("#statustemp1").text("Danger");
+          $("#statustemp1").text("Danger"); 
          }
          
          for (let i=0; i < feeds.length; i++)  {
