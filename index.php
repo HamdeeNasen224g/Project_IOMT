@@ -484,20 +484,20 @@ $(
              $("#bpm").text(feeds[feeds.length-1].field1+" BPM");
              $("#temp").text(feeds[feeds.length-1].field3+" ํ C");
              $("#lastUpdate").text(feeds[feeds.length-1].created_at);
-         if(feeds[feeds.length-1].field1 > 100 || feeds[feeds.length-1].field1 < 60){
-          $("#statusbpm").text("Danger");
+         if(feeds[feeds.length-1].field1 > 60 || feeds[feeds.length-1].field1 < 90){
+          $("#statusbpm").text("Safe");
          }else{
-          $("#statusbpm1").text("Safe");
+          $("#statusbpm1").text("Danger");
          }
-         if(feeds[feeds.length-1].field2 > 90 || feeds[feeds.length-1].field2 < 70){
-          $("#statusspo2").text("Danger");
+         if(feeds[feeds.length-1].field2 >= 95){
+          $("#statusspo2").text("Safe");
          }else{
-          $("#statusspo21").text("Safe");
+          $("#statusspo21").text("Danger");
          }
-         if(feeds[feeds.length-1].field3 > 37.5 || feeds[feeds.length-1].field3 < 34.5){
-          $("#statustemp").text("Danger");
+         if(feeds[feeds.length-1].field3 > 35.4 || feeds[feeds.length-1].field3 < 37.4){
+          $("#statustemp").text("Safe");
          }else{
-          $("#statustemp1").text("Safe");
+          $("#statustemp1").text("Danger");
          }
          
          for (let i=0; i < feeds.length; i++)  {
